@@ -1,11 +1,9 @@
-import Link from "next/link";
-
 import Hero from "@/components/Hero";
-import Overview from "@/components/overview";
-import Projects from "@/components/projects";
-import About from "@/components/about";
-import Contact from "@/components/contact";
-import Footer from "@/components/ui/footer";
+import Overview from "@/components/Overview";
+import Projects from "@/components/Projects";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Footer from "@/components/ui/Footer";
 import TopNavBar from "@/components/ui/TopNavBar";
 
 export default function Portfolio() {
