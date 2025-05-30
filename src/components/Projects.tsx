@@ -174,11 +174,12 @@ export default function Projects() {
         </div>
         <div className="text-center mt-12">
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="border-gray-600 text-white hover:bg-gray-800"
           >
-            View All Projects
+            <Link href="/project">View All Projects</Link>
           </Button>
         </div>
       </div>
