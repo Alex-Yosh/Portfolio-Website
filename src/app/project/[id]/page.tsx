@@ -1,4 +1,4 @@
-import ProjectDetail from "@/components/ProjectDetail";
+import ProjectDetail from "@/components/ui/ProjectDetail";
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
   console.log("Project ID:", params.id);
