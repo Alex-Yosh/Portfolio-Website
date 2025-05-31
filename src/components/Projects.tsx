@@ -4,10 +4,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/imported/card";
 import Link from "next/link";
 import { Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/imported/button";
 import Image from "next/image";
 
 export default function Projects() {

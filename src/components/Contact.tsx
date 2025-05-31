@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/imported/button";
 import { Mail } from "lucide-react";
 
 export default function Contact() {

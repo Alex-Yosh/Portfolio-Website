@@ -3,7 +3,7 @@ import Overview from "@/components/Overview";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/ui/Footers/Footer";
 import MainHeader from "@/components/ui/Headers/MainHeader";
 
 export default function Home() {

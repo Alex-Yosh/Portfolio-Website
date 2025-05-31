@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from "../button";
+import { Button } from "../imported/button";
 
 export default function MainHeader() {
   const [scrollWidth, setScrollWidth] = useState(0);

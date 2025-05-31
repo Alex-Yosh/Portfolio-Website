@@ -2,7 +2,7 @@
 
 import { ArrowLeft, Search } from "lucide-react";
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/imported/input";
 
 interface ProjectHeaderProps {
   searchQuery: string;
