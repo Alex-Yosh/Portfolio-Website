@@ -4,13 +4,13 @@ import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/ui/Footer";
-import TopNavBar from "@/components/ui/TopNavBar";
+import MainHeader from "@/components/ui/Headers/MainHeader";
 
-export default function Portfolio() {
+export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Navigation */}
-      <TopNavBar />
+      <MainHeader />
 
       {/* Hero Section */}
       <Hero />

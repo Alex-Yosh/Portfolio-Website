@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from "./button";
+import { Button } from "../button";
 
-export default function TopNavBar() {
+export default function MainHeader() {
   const [scrollWidth, setScrollWidth] = useState(0);
 
   useEffect(() => {
