@@ -190,7 +190,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
           <div className="flex space-x-4">
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href={`/app/${project.id}`}>View Details</Link>
+              <Link href={`/project/${project.id}`}>View Details</Link>
             </Button>
             <Button
               variant="outline"

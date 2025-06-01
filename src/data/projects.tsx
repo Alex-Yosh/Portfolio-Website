@@ -12,6 +12,7 @@ export interface Project {
   teamSize: string;
   releaseDate: string;
   technologies: string[];
+  githubUrl: string;
 }
 
 // Sample app data
@@ -29,6 +30,7 @@ export const projectList: Project[] = [
     teamSize: "2 developers",
     releaseDate: "2022-05-15",
     technologies: ["SwiftUI", "HealthKit", "Core Data"],
+    githubUrl: "",
   },
   {
     id: "cosmic-runner",
@@ -43,6 +45,7 @@ export const projectList: Project[] = [
     teamSize: "3 developers",
     releaseDate: "2023-01-10",
     technologies: ["Unity", "C#", "AdMob"],
+    githubUrl: "",
   },
   {
     id: "smart-budget",
@@ -57,6 +60,7 @@ export const projectList: Project[] = [
     teamSize: "Solo project",
     releaseDate: "2023-06-30",
     technologies: ["Kotlin", "Compose", "Room"],
+    githubUrl: "",
   },
   {
     id: "puzzle-quest",
@@ -71,6 +75,7 @@ export const projectList: Project[] = [
     teamSize: "4 developers",
     releaseDate: "2022-03-12",
     technologies: ["SpriteKit", "GameCenter", "Swift"],
+    githubUrl: "",
   },
   {
     id: "recipe-master",
@@ -85,6 +90,7 @@ export const projectList: Project[] = [
     teamSize: "Solo project",
     releaseDate: "2023-08-18",
     technologies: ["Swift", "CoreML", "Firebase"],
+    githubUrl: "",
   },
   {
     id: "space-defender",
@@ -99,6 +105,7 @@ export const projectList: Project[] = [
     teamSize: "2 developers",
     releaseDate: "2023-04-25",
     technologies: ["Unity", "C#", "Google Play Games"],
+    githubUrl: "",
   },
   {
     id: "mindful-moments",
@@ -113,6 +120,7 @@ export const projectList: Project[] = [
     teamSize: "Solo project",
     releaseDate: "2023-01-10",
     technologies: ["Swift", "WatchKit", "AVFoundation"],
+    githubUrl: "",
   },
   {
     id: "photo-editor-pro",
@@ -127,6 +135,7 @@ export const projectList: Project[] = [
     teamSize: "3 developers",
     releaseDate: "2022-11-05",
     technologies: ["Kotlin", "CameraX", "TensorFlow"],
+    githubUrl: "",
   },
   {
     id: "cyber-legends",
@@ -141,6 +150,7 @@ export const projectList: Project[] = [
     teamSize: "5 developers",
     releaseDate: "2023-03-15",
     technologies: ["Unreal Engine", "C++", "Steam SDK"],
+    githubUrl: "",
   },
   {
     id: "quantum-strategy",
@@ -155,6 +165,7 @@ export const projectList: Project[] = [
     teamSize: "Solo project",
     releaseDate: "2022-11-20",
     technologies: ["Unity", "C#", "Photon"],
+    githubUrl: "",
   },
   {
     id: "neural-network-sim",
@@ -169,5 +180,6 @@ export const projectList: Project[] = [
     teamSize: "2 developers",
     releaseDate: "2023-07-10",
     technologies: ["Electron", "JavaScript", "TensorFlow.js"],
+    githubUrl: "",
   },
 ];

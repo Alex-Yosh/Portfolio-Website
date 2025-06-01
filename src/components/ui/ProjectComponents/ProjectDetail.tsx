@@ -18,83 +18,42 @@ import {
   CardTitle,
 } from "@/components/ui/imported/card";
 import { Badge } from "@/components/ui/imported/badge";
+import { Project } from "@/data/projects";
 
 interface ProjectDetailProps {
-  project?: {
-    id: string;
-    title: string;
-    description: string;
-    longDescription: string;
-    image: string;
-    gallery: string[];
-    technologies: string[];
-    features: string[];
-    liveUrl: string;
-    githubUrl: string;
-    duration: string;
-    teamSize: string;
-    role: string;
-    challenges: string[];
-    solutions: string[];
-  };
+  project: Project;
 }
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
-  // Default project data for demo
-  const defaultProject = {
-    id: "ecommerce-platform",
-    title: "E-commerce Platform",
-    description:
-      "A full-stack e-commerce solution built with Next.js, Stripe, and PostgreSQL",
-    longDescription:
-      "This comprehensive e-commerce platform was built to provide a seamless shopping experience for both customers and administrators. The project features a modern, responsive design with advanced functionality including real-time inventory management, secure payment processing, and detailed analytics dashboard.",
-    image: "/placeholder.svg?height=400&width=800",
-    gallery: [
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-    ],
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Stripe",
-      "Tailwind CSS",
-      "Prisma",
-      "NextAuth",
-      "Vercel",
-    ],
-    features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart and checkout process",
-      "Payment processing with Stripe",
-      "Order management system",
-      "Admin dashboard with analytics",
-      "Responsive design for all devices",
-      "SEO optimization",
-    ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example/repo",
-    duration: "3 months",
-    teamSize: "Solo project",
-    role: "Full Stack Developer",
-    challenges: [
-      "Implementing secure payment processing",
-      "Optimizing database queries for large product catalogs",
-      "Creating a responsive design that works across all devices",
-      "Ensuring proper SEO for product pages",
-    ],
-    solutions: [
-      "Integrated Stripe with proper webhook handling for secure transactions",
-      "Implemented database indexing and query optimization techniques",
-      "Used Tailwind CSS with mobile-first approach for responsive design",
-      "Added proper meta tags and structured data for SEO",
-    ],
-  };
+  const projectData = project;
 
-  const projectData = project || defaultProject;
+  const longDescription =
+    "This comprehensive fitness tracking application was built to provide seamless integration with Apple's HealthKit ecosystem. The project features real-time workout monitoring, personalized fitness goals, and detailed analytics. Built with SwiftUI for a modern, responsive interface, the app leverages Core Data for efficient local storage and CloudKit for cross-device synchronization. The development process involved extensive research into health data privacy requirements and implementing complex data visualization components.";
+
+  const features = [
+    "Real-time workout tracking with HealthKit integration",
+    "Custom SwiftUI components for data visualization",
+    "Core Data persistence with CloudKit sync",
+    "Apple Watch companion app with WatchKit",
+    "Comprehensive unit and UI test coverage",
+    "Accessibility support with VoiceOver",
+    "Dark mode and dynamic type support",
+    "Privacy-first approach to health data",
+  ];
+
+  const challenges = [
+    "Implementing complex HealthKit data synchronization",
+    "Creating responsive charts for workout analytics",
+    "Ensuring HIPAA compliance for health data",
+    "Optimizing Core Data performance for large datasets",
+  ];
+
+  const solutions = [
+    "Built custom HealthKit wrapper with proper error handling",
+    "Developed reusable SwiftUI chart components with animations",
+    "Implemented end-to-end encryption for sensitive data",
+    "Used NSFetchedResultsController with batch processing",
+  ];
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -103,11 +62,11 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link
-              href="/project"
+              href="/"
               className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Projects
+              Back to Portfolio
             </Link>
             <div className="flex space-x-4">
               <Button
@@ -131,7 +90,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 className="bg-blue-600 hover:bg-blue-700"
               >
                 <Link
-                  href={projectData.liveUrl}
+                  href={projectData.screenshot}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -149,7 +108,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              {projectData.title}
+              {projectData.name}
             </h1>
             <p className="text-xl text-gray-300 mb-6 max-w-3xl">
               {projectData.description}
@@ -169,8 +128,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
           <div className="relative rounded-lg overflow-hidden mb-12">
             <Image
-              src={projectData.image || "/placeholder.svg"}
-              alt={projectData.title}
+              src={projectData.screenshot || "/placeholder.svg"}
+              alt={projectData.name}
               width={800}
               height={400}
               className="w-full h-96 object-cover"
@@ -192,7 +151,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   Project Overview
                 </h2>
                 <p className="text-gray-300 leading-relaxed text-lg">
-                  {projectData.longDescription}
+                  {longDescription}
                 </p>
               </div>
 
@@ -202,7 +161,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   Key Features
                 </h2>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {projectData.features.map((feature, index) => (
+                  {features.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <Zap className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                       <span className="text-gray-300">{feature}</span>
@@ -218,7 +177,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     Challenges
                   </h3>
                   <ul className="space-y-3">
-                    {projectData.challenges.map((challenge, index) => (
+                    {challenges.map((challenge, index) => (
                       <li key={index} className="text-gray-300 leading-relaxed">
                         • {challenge}
                       </li>
@@ -230,7 +189,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     Solutions
                   </h3>
                   <ul className="space-y-3">
-                    {projectData.solutions.map((solution, index) => (
+                    {solutions.map((solution, index) => (
                       <li key={index} className="text-gray-300 leading-relaxed">
                         • {solution}
                       </li>
@@ -245,11 +204,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   Screenshots
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
-                  {projectData.gallery.map((image, index) => (
-                    <div
-                      key={index}
-                      className="relative rounded-lg overflow-hidden group"
-                    >
+                  {/* {projectData.gallery.map((image, index) => (
+                    <div key={index} className="relative rounded-lg overflow-hidden group">
                       <Image
                         src={image || "/placeholder.svg"}
                         alt={`${projectData.title} screenshot ${index + 1}`}
@@ -259,7 +215,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
                     </div>
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>
@@ -291,8 +247,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   <div className="flex items-center space-x-3">
                     <Code className="w-5 h-5 text-blue-400" />
                     <div>
-                      <p className="text-sm text-gray-400">Role</p>
-                      <p className="text-white">{projectData.role}</p>
+                      <p className="text-sm text-gray-400">Status</p>
+                      <p className="text-white">{projectData.status}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -331,12 +287,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     className="w-full bg-blue-600 hover:bg-blue-700"
                   >
                     <Link
-                      href={projectData.liveUrl}
+                      href="https://github.com/example/fittracker"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View Live Demo
+                      <Github className="w-4 h-4 mr-2" />
+                      View Source Code
                     </Link>
                   </Button>
                   <Button
@@ -345,12 +301,14 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     className="w-full border-gray-600 text-white hover:bg-gray-700"
                   >
                     <Link
-                      href={projectData.githubUrl}
+                      href="https://fittracker-demo.vercel.app"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="w-4 h-4 mr-2" />
-                      View Source Code
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      {projectData.status === "In Development"
+                        ? "View Progress"
+                        : "Live Demo"}
                     </Link>
                   </Button>
                 </CardContent>
