@@ -74,7 +74,6 @@ const renderDeviceMockup = (project: Project) => {
           />
           <div className="absolute bottom-2 left-0 right-0 mx-auto w-1/3 h-1 bg-gray-700 rounded-full"></div>
         </div>
-        <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full w-32 h-32 blur-xl group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
       </div>
     );
   } else if (project.type === "Android") {

@@ -18,6 +18,7 @@ export interface Project {
   releaseDate: string;
   technologies: string[];
   githubUrl: string;
+  isFeatured: boolean;
 }
 
 // Sample app data
@@ -60,6 +61,7 @@ export const projectList: Project[] = [
     releaseDate: "2022-05-15",
     technologies: ["SwiftUI", "HealthKit", "Core Data"],
     githubUrl: "",
+    isFeatured: true,
   },
   {
     id: "cosmic-runner",
@@ -99,6 +101,7 @@ export const projectList: Project[] = [
     releaseDate: "2023-01-10",
     technologies: ["Unity", "C#", "AdMob"],
     githubUrl: "",
+    isFeatured: true,
   },
   {
     id: "smart-budget",
@@ -138,6 +141,7 @@ export const projectList: Project[] = [
     releaseDate: "2023-06-30",
     technologies: ["Kotlin", "Compose", "Room"],
     githubUrl: "",
+    isFeatured: true,
   },
   {
     id: "puzzle-quest",
@@ -177,6 +181,7 @@ export const projectList: Project[] = [
     releaseDate: "2022-03-12",
     technologies: ["SpriteKit", "GameCenter", "Swift"],
     githubUrl: "",
+    isFeatured: true,
   },
   {
     id: "recipe-master",
@@ -216,6 +221,7 @@ export const projectList: Project[] = [
     releaseDate: "2023-08-18",
     technologies: ["Swift", "CoreML", "Firebase"],
     githubUrl: "",
+    isFeatured: false,
   },
   {
     id: "space-defender",
@@ -255,6 +261,7 @@ export const projectList: Project[] = [
     releaseDate: "2023-04-25",
     technologies: ["Unity", "C#", "Google Play Games"],
     githubUrl: "",
+    isFeatured: false,
   },
   {
     id: "mindful-moments",
@@ -294,6 +301,7 @@ export const projectList: Project[] = [
     releaseDate: "2023-01-10",
     technologies: ["Swift", "WatchKit", "AVFoundation"],
     githubUrl: "",
+    isFeatured: false,
   },
   {
     id: "photo-editor-pro",
@@ -333,6 +341,7 @@ export const projectList: Project[] = [
     releaseDate: "2022-11-05",
     technologies: ["Kotlin", "CameraX", "TensorFlow"],
     githubUrl: "",
+    isFeatured: false,
   },
   {
     id: "cyber-legends",
@@ -372,6 +381,7 @@ export const projectList: Project[] = [
     releaseDate: "2023-03-15",
     technologies: ["Unreal Engine", "C++", "Steam SDK"],
     githubUrl: "",
+    isFeatured: false,
   },
   {
     id: "quantum-strategy",
@@ -411,6 +421,7 @@ export const projectList: Project[] = [
     releaseDate: "2022-11-20",
     technologies: ["Unity", "C#", "Photon"],
     githubUrl: "",
+    isFeatured: false,
   },
   {
     id: "neural-network-sim",
@@ -450,5 +461,6 @@ export const projectList: Project[] = [
     releaseDate: "2023-07-10",
     technologies: ["Electron", "JavaScript", "TensorFlow.js"],
     githubUrl: "",
+    isFeatured: false,
   },
 ];

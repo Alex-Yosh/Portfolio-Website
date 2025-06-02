@@ -1,4 +1,4 @@
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./cards/ProjectCard";
 import { Project } from "@/data/projects";
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
