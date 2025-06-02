@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "../imported/button";
+import { MainHeaderText } from "@/data/strings";
 
 export default function MainHeader() {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -34,26 +35,24 @@ export default function MainHeader() {
                 <span className="font-bold text-white">AJ</span>
               </div>
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                Portfolio
+                {MainHeaderText.title}
               </span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-              {["Home", "Overview", "Projects", "About", "Contact"].map(
-                (item) => (
-                  <Link
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="group relative px-4 py-2 text-sm font-medium transition-colors"
-                  >
-                    <span className="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">
-                      {item}
-                    </span>
-                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
-                  </Link>
-                )
-              )}
+              {MainHeaderText.sections.map((item) => (
+                <Link
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="group relative px-4 py-2 text-sm font-medium transition-colors"
+                >
+                  <span className="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">
+                    {item}
+                  </span>
+                  <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              ))}
               {/* <Button
                 size="sm"
                 variant="outline"

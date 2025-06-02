@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/imported/badge";
 import { Gamepad2, Globe, Apple, Bot, AppWindow, Filter } from "lucide-react";
+import { ProjectsPageText } from "@/data/strings";
 
 interface TypeFilterProps {
   selectedType: string | null;
@@ -15,28 +16,28 @@ const getTypeFilterLabel = (type: string) => {
       return (
         <>
           <Gamepad2 className="w-3 h-3 mr-1" />
-          Game
+          {ProjectsPageText.typeLabels.game}
         </>
       );
     case "Web":
       return (
         <>
           <Globe className="w-3 h-3 mr-1" />
-          Web
+          {ProjectsPageText.typeLabels.web}
         </>
       );
     case "iOS":
       return (
         <>
           <Apple className="w-3 h-3 mr-1" />
-          iOS
+          {ProjectsPageText.typeLabels.ios}
         </>
       );
     case "Android":
       return (
         <>
           <Bot className="w-3 h-3 mr-1" />
-          Android
+          {ProjectsPageText.typeLabels.android}
         </>
       );
     default:
@@ -73,11 +74,15 @@ export default function ProjectFilter({
     <div className="mb-12 space-y-6">
       <div className="flex items-center mb-4">
         <Filter className="w-5 h-5 mr-2 text-blue-400" />
-        <h2 className="text-xl font-semibold">Filters</h2>
+        <h2 className="text-xl font-semibold">
+          {ProjectsPageText.filterTitle}
+        </h2>
       </div>
 
       <div>
-        <p className="text-sm text-gray-400 mb-2">Type</p>
+        <p className="text-sm text-gray-400 mb-2">
+          {ProjectsPageText.filterTitle}
+        </p>
         <div className="flex flex-wrap gap-2">
           <Badge
             variant={selectedType === null ? "default" : "outline"}
@@ -88,7 +93,7 @@ export default function ProjectFilter({
             }`}
             onClick={() => setSelectedType(null)}
           >
-            All Types
+            {ProjectsPageText.filterAllType}
           </Badge>
 
           {types.map((type) => (

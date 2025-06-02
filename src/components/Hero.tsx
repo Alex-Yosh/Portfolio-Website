@@ -1,5 +1,6 @@
 "use client";
 
+import { HeroText, Name } from "@/data/strings";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,7 +43,7 @@ export default function Hero() {
           {/* Animated Name */}
           <div className="mb-6 relative">
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
-              Alex Johnson
+              {Name}
             </h1>
             {/* Glowing underline */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
@@ -52,24 +53,22 @@ export default function Hero() {
           <div className="mb-8 relative">
             <p className="text-xl md:text-2xl text-gray-300 animate-fade-in-up">
               <span className="inline-block animate-bounce-subtle">
-                Mobile Developer
+                {HeroText.roleOne}
               </span>
               <span className="mx-2 text-blue-400">•</span>
               <span className="inline-block animate-bounce-subtle delay-200">
-                Game Designer
+                {HeroText.roleTwo}
               </span>
               <span className="mx-2 text-purple-400">•</span>
               <span className="inline-block animate-bounce-subtle delay-400">
-                Tech Innovator
+                {HeroText.roleThree}
               </span>
             </p>
           </div>
 
           {/* Enhanced Description */}
           <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-300">
-            I create engaging mobile applications and games for iOS and Android
-            that captivate users and drive meaningful engagement through
-            innovative design and seamless functionality.
+            {HeroText.description}
           </p>
 
           {/* Enhanced Social Links */}

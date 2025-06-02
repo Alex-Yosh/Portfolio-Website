@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ProjectsDetailsText } from "@/data/strings";
 
 interface ProjectDetailGalleryProps {
   gallery: string[];
@@ -9,7 +10,7 @@ export default function ProjectDetailGallery({
 }: ProjectDetailGalleryProps) {
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-6 text-blue-400">Screenshots</h2>
+      <h2 className="text-3xl font-bold mb-6 text-blue-400">{ProjectsDetailsText.screenshots}</h2>
       <div className="grid md:grid-cols-2 gap-6">
         {gallery.map((image, index) => (
           <div

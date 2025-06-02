@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/imported/button";
 import { Mail } from "lucide-react";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { useInView } from "@/hooks/useInView";
+import { ContactText } from "@/data/strings";
 
 export default function Contact() {
   const { ref, isInView } = useInView(0.3);
@@ -32,12 +33,11 @@ export default function Contact() {
         className={`max-w-4xl mx-auto text-center transform transition-all duration-700 ${animationClass}`}
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-          Let&apos;s Work Together
+          {ContactText.sectionTitle}
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
         <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto translate-y-6">
-          I&apos;m always interested in new opportunities and exciting projects.
-          Let&apos;s discuss how we can bring your ideas to life.
+          {ContactText.description}
         </p>
         <div
           className={`flex flex-col sm:flex-row gap-6 justify-center transform transition-all duration-700`}
@@ -47,15 +47,16 @@ export default function Contact() {
             className="bg-blue-600 hover:bg-blue-700 hover:scale-105"
           >
             <Mail className="w-5 h-5 mr-2" />
-            Get In Touch
+            {ContactText.emailButton}
           </Button>
-          <Button
+          {/* <Button
             size="lg"
             variant="outline"
             className="border-gray-600 text-white hover:bg-gray-800 hover:scale-105"
           >
-            Schedule a Call
-          </Button>
+            <Text className="w-5 h-5 mr-2" /> 
+            {ContactText.messageButton}
+          </Button> */}
         </div>
       </div>
     </section>

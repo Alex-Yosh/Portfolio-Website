@@ -11,6 +11,7 @@ import { useInView } from "@/hooks/useInView";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { ArrowRight } from "lucide-react";
 import FeaturedProjectCard from "./ui/ProjectComponents/cards/FeaturedProjectCard";
+import { ProjectsText } from "@/data/strings";
 
 export default function Projects() {
   const featuredProjects = projectList.filter((project) => project.isFeatured);
@@ -51,12 +52,11 @@ export default function Projects() {
           className={`text-center mb-16 transition-opacity transform duration-700 ${fadeInClass}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            Projects
+            {ProjectsText.sectionTitle}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
           <p className="text-xl text-gray-300 leading-relaxed mb-8 translate-y-6">
-            Here are some of my recent projects that showcase my skills and
-            passion for development.
+            {ProjectsText.description}
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function Projects() {
             asChild
           >
             <Link href="/project" className="flex items-center">
-              View All Projects
+              {ProjectsText.viewProjects}
               <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </Link>
           </Button>

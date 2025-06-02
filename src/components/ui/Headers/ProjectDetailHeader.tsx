@@ -2,6 +2,7 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import { Project } from "@/data/projects";
 import { Button } from "@/components/ui/imported/button";
+import { ProjectDetailHeaderText } from "@/data/strings";
 
 interface ProjectDetailHeaderProps {
   project: Project;
@@ -20,7 +21,7 @@ export default function ProjectDetailHeader({
               className="flex items-center text-blue-400 hover:text-blue-300 transition-colors mr-8"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Projects
+              {ProjectDetailHeaderText.backButton}
             </Link>
           </div>
           <div className="flex items-center space-x-4">
@@ -37,7 +38,7 @@ export default function ProjectDetailHeader({
                   rel="noopener noreferrer"
                 >
                   <Github className="w-4 h-4 mr-2" />
-                  Code
+                  {ProjectDetailHeaderText.code}
                 </Link>
               </Button>
               <Button
@@ -51,7 +52,7 @@ export default function ProjectDetailHeader({
                   rel="noopener noreferrer"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
-                  Live Demo
+                  {ProjectDetailHeaderText.liveDemo}
                 </Link>
               </Button>
             </div>

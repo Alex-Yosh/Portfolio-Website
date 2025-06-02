@@ -12,6 +12,7 @@ import {
   Gamepad2,
   Globe,
 } from "lucide-react";
+import { ProjectsPageText } from "@/data/strings";
 
 const getTypeBadge = (type: string) => {
   switch (type) {
@@ -19,14 +20,14 @@ const getTypeBadge = (type: string) => {
       return (
         <Badge className="bg-purple-600">
           <Gamepad2 className="w-3 h-3 mr-1" />
-          Game
+          {ProjectsPageText.typeLabels.game}
         </Badge>
       );
     case "Web":
       return (
         <Badge className="bg-teal-600">
           <Globe className="w-3 h-3 mr-1" />
-          Web
+          {ProjectsPageText.typeLabels.web}
         </Badge>
       );
 
@@ -34,14 +35,14 @@ const getTypeBadge = (type: string) => {
       return (
         <Badge className="bg-orange-600">
           <Apple className="w-3 h-3 mr-1" />
-          iOS
+          {ProjectsPageText.typeLabels.ios}
         </Badge>
       );
     case "Android":
       return (
         <Badge className="bg-green-600">
           <Bot className="w-3 h-3 mr-1" />
-          Android
+          {ProjectsPageText.typeLabels.android}
         </Badge>
       );
 
@@ -49,7 +50,7 @@ const getTypeBadge = (type: string) => {
       return (
         <Badge className="bg-green-600">
           <AppWindow className="w-3 h-3 mr-1" />
-          {type.charAt(0).toUpperCase() + type.slice(1)}
+          {ProjectsPageText.typeLabels.default}
         </Badge>
       );
   }
@@ -154,14 +155,18 @@ export default function ProjectCard({ project }: { project: Project }) {
             <div className="flex items-center">
               <Users className="w-5 h-5 text-blue-400 mr-2" />
               <div>
-                <p className="text-sm text-gray-400">Team Size</p>
+                <p className="text-sm text-gray-400">
+                  {ProjectsPageText.teamSize}
+                </p>
                 <p className="font-semibold">{project.teamSize}</p>
               </div>
             </div>
             <div className="flex items-center">
               <Calendar className="w-5 h-5 text-blue-400 mr-2" />
               <div>
-                <p className="text-sm text-gray-400">Completed</p>
+                <p className="text-sm text-gray-400">
+                  {ProjectsPageText.completed}
+                </p>
                 <p className="font-semibold">
                   {new Date(project.releaseDate).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -173,7 +178,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
 
           <div className="mb-6">
-            <p className="text-sm text-gray-400 mb-2">Technologies</p>
+            <p className="text-sm text-gray-400 mb-2">
+              {ProjectsPageText.technologies}
+            </p>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <Badge
@@ -189,7 +196,9 @@ export default function ProjectCard({ project }: { project: Project }) {
 
           <div className="flex space-x-4">
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href={`/project/${project.id}`}>View Details</Link>
+              <Link href={`/project/${project.id}`}>
+                {ProjectsPageText.viewDetails}
+              </Link>
             </Button>
             <Button
               variant="outline"
