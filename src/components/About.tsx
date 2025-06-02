@@ -23,11 +23,23 @@ const sections = [
 
 export default function About() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8" id="about">
+    <section
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50 overflow-hidden animate-on-scroll"
+      id="about"
+    >
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-800/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-800/50 to-transparent"></div>
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto" />
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            About Me
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
         </div>
 
         <div className="space-y-24">
@@ -41,6 +53,8 @@ export default function About() {
           {sections.map((section, index) => (
             <div
               key={index}
+              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+              data-aos-delay={index * 100}
               className={`grid md:grid-cols-2 gap-12 items-center ${
                 index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
               }`}
