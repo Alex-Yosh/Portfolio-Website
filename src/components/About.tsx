@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useHasMounted } from "@/hooks/useHasMounted";
+import { useInView } from "@/hooks/useInView";
 
 const sections = [
   {
@@ -22,11 +26,21 @@ const sections = [
 ];
 
 export default function About() {
+  const hasMounted = useHasMounted();
+
+  const { ref: ref0, isInView: isInView0 } = useInView(0.3);
+  const { ref: ref1, isInView: isInView1 } = useInView(0.3);
+  const { ref: ref2, isInView: isInView2 } = useInView(0.3);
+
+  const refs = [ref0, ref1, ref2];
+  const views = [isInView0, isInView1, isInView2];
+
   return (
     <section
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50 overflow-hidden animate-on-scroll"
       id="about"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50 overflow-hidden"
     >
+      {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-800/50 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-800/50 to-transparent"></div>
@@ -50,36 +64,45 @@ export default function About() {
             </p>
           </div>
 
-          {sections.map((section, index) => (
-            <div
-              key={index}
-              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-              data-aos-delay={index * 100}
-              className={`grid md:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-              }`}
-            >
-              {/* Image */}
-              <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+          {sections.map((section, index) => {
+            const ref = refs[index];
+            const isInView = views[index];
 
-              {/* Text */}
-              <div>
-                <h3 className="text-2xl font-semibold text-blue-400 mb-4">
-                  {section.title}
-                </h3>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  {section.description}
-                </p>
+            const directionClass =
+              index % 2 === 0 ? "translate-x-[-40px]" : "translate-x-[40px]";
+
+            const visibleClass =
+              hasMounted && isInView
+                ? "opacity-100 translate-x-0"
+                : `opacity-0 ${directionClass}`;
+
+            return (
+              <div
+                key={index}
+                ref={ref}
+                className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ease-out will-change-transform ${visibleClass} ${
+                  index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                }`}
+              >
+                <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-blue-400 mb-4">
+                    {section.title}
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    {section.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

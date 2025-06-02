@@ -1,16 +1,67 @@
 "use client";
 
-import { useEffect } from "react";
-import AOS from "aos";
 import Image from "next/image";
+import { useInView } from "@/hooks/useInView";
+import { useHasMounted } from "@/hooks/useHasMounted";
+
+const skills = [
+  {
+    title: "iOS Development",
+    items: [
+      "Swift & SwiftUI",
+      "UIKit & Storyboards",
+      "Core Data & CloudKit",
+      "SpriteKit & SceneKit",
+    ],
+    color: "blue",
+  },
+  {
+    title: "Android Development",
+    items: [
+      "Kotlin & Java",
+      "Jetpack Compose",
+      "Room & Firebase",
+      "Android NDK",
+    ],
+    color: "green",
+  },
+  {
+    title: "Game Development",
+    items: ["Unity & C#", "Unreal Engine", "Cocos2d-x", "Game Analytics"],
+    color: "purple",
+  },
+  {
+    title: "Tools & Services",
+    items: [
+      "Xcode & Android Studio",
+      "Firebase & AWS",
+      "App Store Connect",
+      "Google Play Console",
+    ],
+    color: "orange",
+  },
+];
 
 export default function Overview() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-  }, []);
+  const hasMounted = useHasMounted();
+  const { ref: titleRef, isInView: titleInView } = useInView(0.3);
+  const { ref: leftRef, isInView: leftInView } = useInView(0.3);
+  const { ref: rightRef, isInView: rightInView } = useInView(0.3);
+
+  const fadeUp = (visible: boolean) =>
+    hasMounted && visible
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 translate-y-10";
+
+  const fadeLeft = (visible: boolean) =>
+    hasMounted && visible
+      ? "opacity-100 translate-x-0"
+      : "opacity-0 translate-x-10";
+
+  const fadeRight = (visible: boolean) =>
+    hasMounted && visible
+      ? "opacity-100 -translate-x-0"
+      : "opacity-0 -translate-x-10";
 
   return (
     <section
@@ -25,7 +76,12 @@ export default function Overview() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16" data-aos="fade-up">
+        <div
+          ref={titleRef}
+          className={`text-center mb-16 transition-all duration-700 ease-out ${fadeUp(
+            titleInView
+          )}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
             Overview
           </h2>
@@ -33,7 +89,13 @@ export default function Overview() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6" data-aos="fade-right">
+          {/* Left Column */}
+          <div
+            ref={leftRef}
+            className={`space-y-6 transition-all duration-700 ease-out ${fadeRight(
+              leftInView
+            )}`}
+          >
             <h3 className="text-2xl font-semibold mb-6 text-blue-400">
               Native Mobile Developer & Game Creator
             </h3>
@@ -50,49 +112,8 @@ export default function Overview() {
             </p>
 
             <div className="grid grid-cols-2 gap-4">
-              {[
-                {
-                  title: "iOS Development",
-                  items: [
-                    "Swift & SwiftUI",
-                    "UIKit & Storyboards",
-                    "Core Data & CloudKit",
-                    "SpriteKit & SceneKit",
-                  ],
-                  color: "blue",
-                },
-                {
-                  title: "Android Development",
-                  items: [
-                    "Kotlin & Java",
-                    "Jetpack Compose",
-                    "Room & Firebase",
-                    "Android NDK",
-                  ],
-                  color: "green",
-                },
-                {
-                  title: "Game Development",
-                  items: [
-                    "Unity & C#",
-                    "Unreal Engine",
-                    "Cocos2d-x",
-                    "Game Analytics",
-                  ],
-                  color: "purple",
-                },
-                {
-                  title: "Tools & Services",
-                  items: [
-                    "Xcode & Android Studio",
-                    "Firebase & AWS",
-                    "App Store Connect",
-                    "Google Play Console",
-                  ],
-                  color: "orange",
-                },
-              ].map((section) => (
-                <div key={section.title} data-aos="fade-up">
+              {skills.map((section) => (
+                <div key={section.title}>
                   <h4
                     className={`font-semibold text-${section.color}-400 mb-2`}
                   >
@@ -113,7 +134,13 @@ export default function Overview() {
             </div>
           </div>
 
-          <div className="relative" data-aos="fade-left">
+          {/* Right Column - Image */}
+          <div
+            ref={rightRef}
+            className={`relative transition-all duration-700 ease-out ${fadeLeft(
+              rightInView
+            )}`}
+          >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-xl opacity-50 animate-pulse-slow"></div>
             <Image
               src="/placeholder.svg?height=400&width=400"
