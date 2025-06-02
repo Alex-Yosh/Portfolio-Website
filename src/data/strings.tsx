@@ -2,60 +2,57 @@ export const Name = "Alex Yoshida";
 export const Copyright = `© 2025 ${Name}. All rights reserved.`;
 
 export const HeroText = {
-  roleOne: "Mobile Developer",
-  roleTwo: "Game Designer",
-  roleThree: "Tech Innovator",
-  description: `I create engaging mobile applications and games for iOS and Android
-  that captivate users and drive meaningful engagement through 
-  innovative design and seamless functionality.`,
+  mainRole: "Mobile Developer",
+  roleOne: "iOS",
+  roleTwo: "Android",
+  description: `I design and build polished, high-performance mobile apps for iOS and Android, blending beautiful UI with robust functionality to deliver seamless user experiences.`,
 };
 
 export const OverviewText = {
   sectionTitle: "Overview",
-  subTitle: "Native Mobile Developer & Game Creator",
-  paragraphOne: `With over 6 years of native mobile development experience across
-              iOS and Android platforms, I specialize in creating
-              high-performance applications and engaging games that have been
-              downloaded over 2M times across app stores.`,
-
-  paragraphTwo: `I’ve launched 25+ native mobile apps and 8 games for clients
-              ranging from indie studios to Fortune 500 companies. My projects
-              consistently achieve 4.5+ star ratings, with several going viral.`,
+  subTitle: "Mobile Developer & Software Engineer",
+  paragraphOne: `I’m a Mechatronics Engineering graduate from the University of Waterloo with 2 years of native mobile development experience. I specialize in crafting smooth, scalable, and user-focused mobile apps for iOS and Android using modern frameworks and best practices.`,
+  paragraphTwo: `From real-time air quality monitoring and personalized movie recommendation engines to powerlifting coaching tools, my apps combine technical precision with thoughtful UI. I bring a strong understanding of full-stack systems, but mobile is where I thrive.`,
   skills: [
     {
       title: "iOS Development",
       items: [
-        "Swift & SwiftUI",
-        "UIKit & Storyboards",
-        "Core Data & CloudKit",
-        "SpriteKit & SceneKit",
+        "Swift & Objective-C",
+        "SwiftUI & UIKit",
+        "Core Data & Combine",
+        "Swift Charts & MapKit",
       ],
       color: "blue",
     },
     {
       title: "Android Development",
       items: [
-        "Kotlin & Java",
-        "Jetpack Compose",
-        "Room & Firebase",
-        "Android NDK",
+        "Kotlin & Jetpack Compose",
+        "Room & Retrofit",
+        "Coroutines & LiveData",
+        "Firebase & SQL Backends",
       ],
       color: "green",
     },
     {
-      title: "Game Development",
-      items: ["Unity & C#", "Unreal Engine", "Cocos2d-x", "Game Analytics"],
-      color: "purple",
-    },
-    {
-      title: "Tools & Services",
+      title: "Full-Stack & Tools",
       items: [
-        "Xcode & Android Studio",
-        "Firebase & AWS",
-        "App Store Connect",
-        "Google Play Console",
+        "Node.js & Express",
+        "PostgreSQL & SQLite",
+        "REST APIs & JSON",
+        "Git, Figma, Xcode, Android Studio",
       ],
       color: "orange",
+    },
+    {
+      title: "Special Projects",
+      items: [
+        "FlickPick: Movie discovery app",
+        "Vita-Pot: Smart plant care iOS app",
+        "Air Quality Tracker: iOS sensor dashboard",
+        "Powerlifting Coach: Athlete feedback platform",
+      ],
+      color: "purple",
     },
   ],
 };
@@ -63,32 +60,30 @@ export const OverviewText = {
 export const ProjectsText = {
   sectionTitle: "Projects",
   description:
-    "Here are some of my recent projects that showcase my skills and passion for development",
+    "Here are some of my featured projects — from client work to passion builds — that showcase my ability to deliver clean code, thoughtful UX, and scalable architecture.",
   viewProjects: "View All Projects",
 };
 
 export const AboutText = {
   sectionTitle: "About Me",
-  description: `
-              Beyond the code, I'm a curious explorer who believes that the
-              best solutions come from understanding people and their stories.`,
+  description: `I'm passionate about crafting digital experiences that feel intuitive, purposeful, and polished — whether it's a coaching app, a data visualization dashboard, or a viral mobile game.`,
   sections: [
     {
       title: "My Journey",
       description:
-        "I started as a graphic designer, which taught me how to think in color, space, and flow. That creativity naturally evolved into frontend development where I build not just what works — but what feels good to use.",
+        "From building iOS apps at startups to leading full-stack mobile projects in university, my path has been shaped by curiosity, creativity, and a drive to improve each product I touch.",
       image: "/images/about-journey.jpg",
     },
     {
       title: "Why I Code",
       description:
-        "I became a full-stack developer to take ideas from sketchbook to shipped product. I love turning user needs into elegant code — and helping people along the way.",
+        "I code to bridge design and function. I love solving user pain points through clean interfaces and performant systems — turning problems into polished, production-ready solutions.",
       image: "/images/about-code.jpg",
     },
     {
       title: "Outside the Screen",
       description:
-        "You’ll find me hiking in nature, brewing the perfect cup of coffee, or digging into a sci-fi novel. I believe that creativity and curiosity outside of work make us better developers.",
+        "I'm a competitive powerlifter, travel enthusiast, and self-proclaimed espresso perfectionist. I believe balance outside of work sharpens creativity inside of it.",
       image: "/images/about-life.jpg",
     },
   ],
@@ -96,8 +91,7 @@ export const AboutText = {
 
 export const ContactText = {
   sectionTitle: "Let's Work Together",
-  description: ` I'm always interested in new opportunities and exciting projects.
-          Let's discuss how we can bring your ideas to life.`,
+  description: `Open to opportunities in mobile development — especially iOS-focused roles with strong UX collaboration. Let's talk about how we can build something impactful together.`,
   emailButton: "Get In Touch",
   messageButton: "Send me a Message",
 };
@@ -107,7 +101,7 @@ export const noProjectsFoundText = "No projects match your search criteria.";
 export const ProjectsPageText = {
   sectionTitle: "Projects",
   description:
-    "Here are some of my recent projects that showcase my skills and passion for development",
+    "Explore a range of apps I've developed — from user-facing interfaces to backend integrations — spanning iOS, Android, and full-stack builds.",
   viewProjects: "View All Projects",
   typeLabels: {
     game: "Game",

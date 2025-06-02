@@ -50,18 +50,19 @@ export default function Hero() {
           </div>
 
           {/* Animated Subtitle */}
-          <div className="mb-8 relative">
-            <p className="text-xl md:text-2xl text-gray-300 animate-fade-in-up">
+          <div className="mb-8 relative text-center animate-fade-in-up">
+            <h1 className="text-2xl md:text-3xl font-bold text-blue-400 mb-2 animate-bounce-subtle">
+              {HeroText.mainRole}
+            </h1>
+            <p className="text-sm md:text-base text-gray-300">
               <span className="inline-block animate-bounce-subtle">
                 {HeroText.roleOne}
               </span>
-              <span className="mx-2 text-blue-400">•</span>
+              <span className="mx-2 inline-block text-blue-400 animate-bounce-subtle delay-200">
+                •
+              </span>
               <span className="inline-block animate-bounce-subtle delay-200">
                 {HeroText.roleTwo}
-              </span>
-              <span className="mx-2 text-purple-400">•</span>
-              <span className="inline-block animate-bounce-subtle delay-400">
-                {HeroText.roleThree}
               </span>
             </p>
           </div>
