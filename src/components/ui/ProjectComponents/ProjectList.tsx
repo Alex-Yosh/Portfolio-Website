@@ -3,7 +3,7 @@ import { Project } from "@/data/projects";
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
   return (
-    <section>
+    <section className="animate-fade-in-up opacity-0 animate-once animate-duration-700 animate-fill-forwards">
       <h2 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
         Projects
       </h2>

@@ -27,6 +27,10 @@ module.exports = {
           from: { opacity: "0", transform: "translateY(30px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-in-right": {
+          "0%": { opacity: "0", transform: "translateX(40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
         "bounce-subtle": {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-5px)" },
@@ -39,6 +43,7 @@ module.exports = {
         "float-slow": "float-slow 10s ease-in-out infinite",
         "spin-slow": "spin-slow 20s linear infinite",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+        "fade-in-right": "fade-in-right 0.8s ease-out forwards",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
       },
     },
