@@ -59,9 +59,9 @@ export default function Overview() {
               leftInView
             )}`}
           >
-            <h3 className="text-2xl font-semibold mb-6 text-blue-400">
+            {/* <h3 className="text-2xl font-semibold mb-6 text-blue-400">
               {OverviewText.subTitle}
-            </h3>
+            </h3> */}
             <p className="text-gray-300 mb-6 leading-relaxed">
               {OverviewText.paragraphOne}
             </p>

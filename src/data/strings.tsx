@@ -5,52 +5,54 @@ export const HeroText = {
   mainRole: "Mobile Developer",
   roleOne: "iOS",
   roleTwo: "Android",
-  description: `I design and build polished, high-performance mobile apps for iOS and Android, blending beautiful UI with robust functionality to deliver seamless user experiences.`,
+  description: `I create mobile apps with strong technical foundations, built to deliver effective solutions for users.`,
 };
 
 export const OverviewText = {
   sectionTitle: "Overview",
   subTitle: "Mobile Developer & Software Engineer",
-  paragraphOne: `I’m a Mechatronics Engineering graduate from the University of Waterloo with 2 years of native mobile development experience. I specialize in crafting smooth, scalable, and user-focused mobile apps for iOS and Android using modern frameworks and best practices.`,
-  paragraphTwo: `From real-time air quality monitoring and personalized movie recommendation engines to powerlifting coaching tools, my apps combine technical precision with thoughtful UI. I bring a strong understanding of full-stack systems, but mobile is where I thrive.`,
+  paragraphOne: `I'm a Mechatronics Engineering graduate from the University of Waterloo, coming out of school with 2 years of professional experience building native mobile applications. While I’ve also worked on web, game, VR, and AR projects, my main focus (and what I enjoy most) is mobile development, particularly for iOS.`,
+  paragraphTwo: `I bring an engineering mindset to every project, focusing on scalable architecture and thoughtful design. My goal is to build apps that are reliable, responsive, and genuinely enjoyable to use.`,
+
   skills: [
     {
       title: "iOS Development",
       items: [
         "Swift & Objective-C",
         "SwiftUI & UIKit",
-        "Core Data & Combine",
-        "Swift Charts & MapKit",
+        "Combine & URLSession",
+        "Core Data, GRDB, SQLite",
+        "MapKit & CoreLocation",
       ],
       color: "blue",
     },
     {
       title: "Android Development",
       items: [
-        "Kotlin & Jetpack Compose",
-        "Room & Retrofit",
+        "Kotlin & Java",
+        "Jetpack Compose & XML",
+        "Retrofit",
         "Coroutines & LiveData",
-        "Firebase & SQL Backends",
       ],
       color: "green",
     },
     {
-      title: "Full-Stack & Tools",
+      title: "Other Development",
       items: [
-        "Node.js & Express",
-        "PostgreSQL & SQLite",
-        "REST APIs & JSON",
-        "Git, Figma, Xcode, Android Studio",
+        "Unity (C#)",
+        "React and React Native (JS/TS)",
+        "Flutter (Dart)",
+        "Python (scripting & automation)",
       ],
       color: "orange",
     },
     {
-      title: "Special Projects",
+      title: "Tools & Environments",
       items: [
-        "FlickPick: Movie discovery app",
-        "Vita-Pot: Smart plant care iOS app",
-        "Air Quality Tracker: iOS sensor dashboard",
-        "Powerlifting Coach: Athlete feedback platform",
+        "Xcode & Android Studio",
+        "Git & Jira",
+        "CI/CD pipelines",
+        "Figma",
       ],
       color: "purple",
     },
@@ -60,7 +62,7 @@ export const OverviewText = {
 export const ProjectsText = {
   sectionTitle: "Projects",
   description:
-    "Here are some of my featured projects — from client work to passion builds — that showcase my ability to deliver clean code, thoughtful UX, and scalable architecture.",
+    "Here are a few of my favorite projects that highlight my focus on clean code, practical solutions, and scaleable architecture.",
   viewProjects: "View All Projects",
 };
 
@@ -69,21 +71,21 @@ export const AboutText = {
   description: `I'm passionate about crafting digital experiences that feel intuitive, purposeful, and polished — whether it's a coaching app, a data visualization dashboard, or a viral mobile game.`,
   sections: [
     {
-      title: "My Journey",
+      title: "What Drives Me",
       description:
-        "From building iOS apps at startups to leading full-stack mobile projects in university, my path has been shaped by curiosity, creativity, and a drive to improve each product I touch.",
+        "I’m someone who finds energy in the people around me. Whether it’s late-night conversations with close friends or supporting my family, these moments remind me what really matters and keep me grounded.",
       image: "/images/about-journey.jpg",
     },
     {
-      title: "Why I Code",
+      title: "Movement & Discipline",
       description:
-        "I code to bridge design and function. I love solving user pain points through clean interfaces and performant systems — turning problems into polished, production-ready solutions.",
+        "Powerlifting has taught me focus, patience, and how to push through challenges — both mental and physical. Lately, running has become part of my routine too. It’s less about speed and more about clarity.",
       image: "/images/about-code.jpg",
     },
     {
-      title: "Outside the Screen",
+      title: "Soundtrack to My Life",
       description:
-        "I'm a competitive powerlifter, travel enthusiast, and self-proclaimed espresso perfectionist. I believe balance outside of work sharpens creativity inside of it.",
+        "Music plays a huge role in how I experience the world. Whether I’m discovering something new, making playlists, or just zoning in with headphones on, it helps me connect, reset, and express myself.",
       image: "/images/about-life.jpg",
     },
   ],
