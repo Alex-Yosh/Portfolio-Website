@@ -4,61 +4,12 @@ import { Calendar, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/data/projects";
-import {
-  // Download,
-  AppWindow,
-  Apple,
-  Bot,
-  Gamepad2,
-  Globe,
-} from "lucide-react";
 import { ProjectsPageText } from "@/data/strings";
-
-const getTypeBadge = (type: string) => {
-  switch (type) {
-    case "Game":
-      return (
-        <Badge className="bg-purple-600">
-          <Gamepad2 className="w-3 h-3 mr-1" />
-          {ProjectsPageText.typeLabels.game}
-        </Badge>
-      );
-    case "Web":
-      return (
-        <Badge className="bg-teal-600">
-          <Globe className="w-3 h-3 mr-1" />
-          {ProjectsPageText.typeLabels.web}
-        </Badge>
-      );
-
-    case "iOS":
-      return (
-        <Badge className="bg-orange-600">
-          <Apple className="w-3 h-3 mr-1" />
-          {ProjectsPageText.typeLabels.ios}
-        </Badge>
-      );
-    case "Android":
-      return (
-        <Badge className="bg-green-600">
-          <Bot className="w-3 h-3 mr-1" />
-          {ProjectsPageText.typeLabels.android}
-        </Badge>
-      );
-
-    default:
-      return (
-        <Badge className="bg-green-600">
-          <AppWindow className="w-3 h-3 mr-1" />
-          {ProjectsPageText.typeLabels.default}
-        </Badge>
-      );
-  }
-};
+import TypePills from "../../Pills/TypePills";
 
 // Function to render device mockup
 const renderDeviceMockup = (project: Project) => {
-  if (project.type === "iOS") {
+  if (project.type.includes("iOS")) {
     // iPhone mockup
     return (
       <div className="relative w-[280px] mx-auto md:mx-0">
@@ -77,7 +28,7 @@ const renderDeviceMockup = (project: Project) => {
         </div>
       </div>
     );
-  } else if (project.type === "Android") {
+  } else if (project.type.includes("Android")) {
     // Android mockup
     return (
       <div className="relative w-[280px] mx-auto md:mx-0">
@@ -136,9 +87,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-1">{project.name}</h3>
-              <div className="flex items-center gap-2 mb-2">
-                {getTypeBadge(project.type)}
-              </div>
+              <TypePills types={project.type} />
               <p className="text-gray-400 mb-2">{project.category}</p>
               <Badge
                 variant="outline"

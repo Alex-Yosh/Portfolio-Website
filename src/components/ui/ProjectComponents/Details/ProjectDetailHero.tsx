@@ -1,6 +1,7 @@
 import { Project } from "@/data/projects";
 import Image from "next/image";
-import { Badge } from "@/components/ui/imported/badge";
+import TypePills from "../../Pills/TypePills";
+import TechPills from "../../Pills/TechPills";
 
 interface ProjectDetailsHeroProps {
   project: Project;
@@ -11,24 +12,15 @@ export default function ProjectDetailHero({
   return (
     <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-8 space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             {project.name}
           </h1>
-          <p className="text-xl text-gray-300 mb-6 max-w-3xl">
+          <TypePills types={project.type} />
+          <p className="text-xl text-gray-300 max-w-3xl">
             {project.description}
           </p>
-          <div className="flex flex-wrap gap-2 mb-8">
-            {project.technologies.map((tech) => (
-              <Badge
-                key={tech}
-                variant="secondary"
-                className="bg-gray-800 text-gray-300"
-              >
-                {tech}
-              </Badge>
-            ))}
-          </div>
+          <TechPills technologies={project.technologies} />
         </div>
 
         <div className="relative rounded-lg overflow-hidden mb-12">

@@ -8,6 +8,8 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { Project } from "@/data/projects";
+import TechPills from "../../Pills/TechPills";
+import TypePills from "../../Pills/TypePills";
 
 interface FeaturedProjectCardProps {
   project: Project;
@@ -35,19 +37,11 @@ export default function FeaturedProjectCard({
         </CardHeader>
         <CardContent className="p-6">
           <CardTitle className="text-white mb-2">{project.name}</CardTitle>
+          <TypePills types={project.type} />
           <CardDescription className="text-gray-400 mb-4">
             {project.description}
           </CardDescription>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 bg-blue-600 text-xs rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          <TechPills technologies={project.technologies} />
         </CardContent>
       </Link>
     </Card>

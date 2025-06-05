@@ -12,14 +12,27 @@ export default function Project() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
-  const types = Array.from(new Set(projectList.map((project) => project.type)));
+  const types = Array.from(
+    new Set(
+      projectList.flatMap((project) =>
+        Array.isArray(project.type) ? project.type : [project.type]
+      )
+    )
+  );
 
   // Filter apps based on search and filters
   const filteredProjects = projectList.filter((project) => {
     const matchesSearch =
       project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesType = selectedType ? project.type === selectedType : true;
+
+    const typeArray = Array.isArray(project.type)
+      ? project.type
+      : [project.type];
+    const matchesType = selectedType
+      ? typeArray.includes(selectedType as "Game" | "Web" | "iOS" | "Android")
+      : true;
+
     return matchesSearch && matchesType;
   });
 
