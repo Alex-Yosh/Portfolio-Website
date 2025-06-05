@@ -29,7 +29,7 @@ export default function Hero() {
             <div className="relative inline-block">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-50 animate-pulse"></div>
               <Image
-                src="/placeholder.svg?height=150&width=150"
+                src={HeroText.img}
                 alt="Profile"
                 width={150}
                 height={150}

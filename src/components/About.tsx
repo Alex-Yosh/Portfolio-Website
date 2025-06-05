@@ -63,14 +63,21 @@ export default function About() {
                   index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src={section.image}
-                    alt={section.title}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative w-full h-64 md:h-80 group">
+                  {/* Glow layer */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-3xl opacity-70 z-0" />
+
+                  {/* Image container */}
+                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-xl z-10 border border-white/10">
+                    <Image
+                      src={section.image}
+                      alt={section.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
+
                 <div>
                   <h3 className="text-2xl font-semibold text-blue-400 mb-4">
                     {section.title}

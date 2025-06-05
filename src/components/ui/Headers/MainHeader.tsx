@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "../imported/button";
 import { MainHeaderText } from "@/data/strings";
+import Image from "next/image";
 
 export default function MainHeader() {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -31,8 +32,13 @@ export default function MainHeader() {
           <div className="flex justify-between items-center py-4">
             {/* Logo/Brand */}
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span className="font-bold text-white">AJ</span>
+              <div className="h-8 w-8 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center group transition-transform duration-300">
+                <Image
+                  src={MainHeaderText.img}
+                  alt="Blue spotted egg"
+                  width={32}
+                  height={32}
+                />
               </div>
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                 {MainHeaderText.title}

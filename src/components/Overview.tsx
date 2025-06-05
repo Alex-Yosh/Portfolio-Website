@@ -51,7 +51,7 @@ export default function Overview() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-24 items-center">
           {/* Left Column */}
           <div
             ref={leftRef}
@@ -101,7 +101,7 @@ export default function Overview() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-xl opacity-50 animate-pulse-slow"></div>
             <Image
-              src="/placeholder.svg?height=400&width=400"
+              src={OverviewText.img}
               alt="Mobile development workspace"
               width={400}
               height={400}

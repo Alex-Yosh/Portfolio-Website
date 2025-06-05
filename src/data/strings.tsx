@@ -3,6 +3,7 @@ export const Copyright = `© 2025 ${Name}. All rights reserved.`;
 
 export const HeroText = {
   mainRole: "Mobile Developer",
+  img: "/non-project/Hero_photo.jpg",
   roleOne: "iOS",
   roleTwo: "Android",
   description: `I create mobile apps with strong technical foundations, built to deliver effective solutions for users.`,
@@ -11,6 +12,7 @@ export const HeroText = {
 export const OverviewText = {
   sectionTitle: "Overview",
   subTitle: "Mobile Developer & Software Engineer",
+  img: "/non-project/Me_travel.jpg",
   paragraphOne: `I'm a Mechatronics Engineering graduate from the University of Waterloo, coming out of school with 2 years of professional experience building native mobile applications. While I’ve also worked on web, game, VR, and AR projects, my main focus (and what I enjoy most) is mobile development, particularly for iOS.`,
   paragraphTwo: `I bring an engineering mindset to every project, focusing on scalable architecture and thoughtful design. My goal is to build apps that are reliable, responsive, and genuinely enjoyable to use.`,
 
@@ -61,39 +63,38 @@ export const OverviewText = {
 
 export const ProjectsText = {
   sectionTitle: "Projects",
-  description:
-    "Here are a few of my favorite projects that highlight my focus on clean code, practical solutions, and scaleable architecture.",
+  description: `A few selected projects that showcase my technical skills, problem-solving mindset, and attention to scalable architecture. Press "View All Projects" to explore more.`,
   viewProjects: "View All Projects",
 };
 
 export const AboutText = {
   sectionTitle: "About Me",
-  description: `I'm passionate about crafting digital experiences that feel intuitive, purposeful, and polished — whether it's a coaching app, a data visualization dashboard, or a viral mobile game.`,
+  description: `I'm shaped by more than just what I build. The people around me, the things I love, and the way I spend my time all play a big part in who I am.`,
+
   sections: [
     {
-      title: "What Drives Me",
+      title: "My People",
       description:
-        "I’m someone who finds energy in the people around me. Whether it’s late-night conversations with close friends or supporting my family, these moments remind me what really matters and keep me grounded.",
-      image: "/images/about-journey.jpg",
+        "The most important part of my life is the people in it. I’m grateful for the friendships I’ve built and the family who supports me. Whether it's sharing everyday moments or being there through big changes, the community I’ve built around me keeps me grounded and growing.",
+      image: "/non-project/Me_people.jpg",
     },
     {
-      title: "Movement & Discipline",
-      description:
-        "Powerlifting has taught me focus, patience, and how to push through challenges — both mental and physical. Lately, running has become part of my routine too. It’s less about speed and more about clarity.",
-      image: "/images/about-code.jpg",
+      title: "Training and Passion",
+      description: `Training is a core part of my life. Running gives me space to think, reset, and stay sharp. Powerlifting introduced structure, discipline, and a different kind of focus that I’ve come to appreciate. I’ve also been exploring HYROX, which pushes me to balance strength with endurance.`,
+
+      image: "/non-project/Me_training.jpg",
     },
     {
-      title: "Soundtrack to My Life",
-      description:
-        "Music plays a huge role in how I experience the world. Whether I’m discovering something new, making playlists, or just zoning in with headphones on, it helps me connect, reset, and express myself.",
-      image: "/images/about-life.jpg",
+      title: "What Fills My Days",
+      description: `Outside of training and work, I find joy in a mix of quiet and active moments. I love reading, cooking new meals, exploring new places, and getting lost in music. I also enjoy staying active through recreational sports like volleyball, rock climbing, and spikeball. Whether I’m planning a trip, diving into a new book, playing a new sport or just putting on headphones to reset, these are the parts of life that help me stay balanced.`,
+      image: "/non-project/Me_hobbies.jpg",
     },
   ],
 };
 
 export const ContactText = {
   sectionTitle: "Let's Work Together",
-  description: `Open to opportunities in mobile development — especially iOS-focused roles with strong UX collaboration. Let's talk about how we can build something impactful together.`,
+  description: `Open to opportunities espeically in mobile development. Let's talk about how we can build something impactful together.`,
   emailButton: "Get In Touch",
   messageButton: "Send me a Message",
 };
@@ -138,6 +139,7 @@ export const ProjectsDetailsText = {
 
 export const MainHeaderText = {
   title: "Portfolio",
+  img: "/non-project/yoshi_egg.svg",
   sections: ["Home", "Overview", "Projects", "About", "Contact"],
 };
 
