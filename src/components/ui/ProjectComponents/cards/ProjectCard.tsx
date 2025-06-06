@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/imported/button";
 import { Badge } from "@/components/ui/imported/badge";
-import { Calendar, Users } from "lucide-react";
+import { Calendar, Users, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/data/projects";
 import { ProjectsPageText } from "@/data/strings";
 import TypePills from "../../Pills/TypePills";
+import AppIcon from "../../extra/AppIcon";
 
 // Function to render device mockup
 const renderDeviceMockup = (project: Project) => {
@@ -14,9 +15,6 @@ const renderDeviceMockup = (project: Project) => {
     return (
       <div className="relative w-[280px] mx-auto md:mx-0">
         <div className="relative w-[280px] h-[570px] rounded-[36px] border-[10px] border-gray-800 overflow-hidden shadow-lg bg-black">
-          <div className="absolute top-0 w-full h-6 bg-black z-10 flex justify-center">
-            <div className="w-20 h-5 bg-black rounded-b-xl"></div>
-          </div>
           <Image
             src={project.screenshot || "/placeholder.svg"}
             alt={project.name}
@@ -76,15 +74,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Project details */}
         <div className="flex-1 flex flex-col justify-center">
           <div className="flex items-start mb-4">
-            <div className="relative mr-4">
-              <Image
-                src={project.icon || "/placeholder.svg"}
-                alt={`${project.name} icon`}
-                width={80}
-                height={80}
-                className="rounded-xl shadow-lg"
-              />
-            </div>
+            <AppIcon iconUrl={project.icon} />
             <div>
               <h3 className="text-2xl font-bold mb-1">{project.name}</h3>
               <TypePills types={project.type} />
@@ -117,7 +107,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                   {ProjectsPageText.completed}
                 </p>
                 <p className="font-semibold">
-                  {new Date(project.releaseDate).toLocaleDateString("en-US", {
+                  {new Date(project.completedDate).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
                   })}
@@ -150,10 +140,19 @@ export default function ProjectCard({ project }: { project: Project }) {
               </Link>
             </Button>
             <Button
+              asChild
               variant="outline"
+              size="sm"
               className="border-gray-600 text-white hover:bg-gray-800"
             >
-              {project.status === "In Development" ? "View Code" : "Live Demo"}
+              <Link
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-4 h-4 mr-2" />
+                {ProjectsPageText.viewCode}
+              </Link>
             </Button>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { Mail } from "lucide-react";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { useInView } from "@/hooks/useInView";
 import { ContactText } from "@/data/strings";
+import { Links } from "@/data/strings";
 
 export default function Contact() {
   const { ref, isInView } = useInView(0.3);
@@ -42,21 +43,15 @@ export default function Contact() {
         <div
           className={`flex flex-col sm:flex-row gap-6 justify-center transform transition-all duration-700`}
         >
-          <Button
-            size="lg"
-            className="bg-blue-600 hover:bg-blue-700 hover:scale-105"
-          >
-            <Mail className="w-5 h-5 mr-2" />
-            {ContactText.emailButton}
-          </Button>
-          {/* <Button
-            size="lg"
-            variant="outline"
-            className="border-gray-600 text-white hover:bg-gray-800 hover:scale-105"
-          >
-            <Text className="w-5 h-5 mr-2" /> 
-            {ContactText.messageButton}
-          </Button> */}
+          <a href={Links.Mail} target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 hover:scale-105"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              {ContactText.emailButton}
+            </Button>
+          </a>
         </div>
       </div>
     </section>

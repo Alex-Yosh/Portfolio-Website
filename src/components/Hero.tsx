@@ -4,6 +4,7 @@ import { HeroText, Name } from "@/data/strings";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Links } from "@/data/strings";
 
 export default function Hero() {
   return (
@@ -74,21 +75,21 @@ export default function Hero() {
 
           {/* Enhanced Social Links */}
           <div className="flex justify-center space-x-8 animate-fade-in-up delay-700">
-            <Link href="#" className="group relative">
+            <Link href={Links.GitHub} className="group relative">
               <div className="absolute inset-0 bg-gray-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-full flex items-center justify-center group-hover:border-white/40 transition-all duration-300 group-hover:scale-110">
                 <Github className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors duration-300" />
               </div>
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="#" className="group relative">
+            <Link href={Links.Linkedin} className="group relative">
               <div className="absolute inset-0 bg-blue-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-full flex items-center justify-center group-hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
                 <Linkedin className="w-6 h-6 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
               </div>
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="#" className="group relative">
+            <Link href={Links.Mail} className="group relative">
               <div className="absolute inset-0 bg-purple-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-full flex items-center justify-center group-hover:border-purple-400 transition-all duration-300 group-hover:scale-110">
                 <Mail className="w-6 h-6 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />

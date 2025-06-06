@@ -1,5 +1,10 @@
 export const Name = "Alex Yoshida";
 export const Copyright = `© 2025 ${Name}. All rights reserved.`;
+export const Links = {
+  GitHub: "https://github.com/Alex-Yosh",
+  Linkedin: "https://www.linkedin.com/in/alex-yoshida/",
+  Mail: "mailto:alexyoshida264@gmail.com",
+};
 
 export const HeroText = {
   mainRole: "Mobile Developer",
@@ -117,6 +122,7 @@ export const ProjectsPageText = {
   completed: "Completed",
   technologies: "Technologies",
   viewDetails: "View Details",
+  viewCode: "View Code",
   filterTitle: "Filters",
   filterType: "Type",
   filterAllType: "All Types",

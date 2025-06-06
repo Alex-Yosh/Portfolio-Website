@@ -65,7 +65,10 @@ export default function Projects() {
           className={`keen-slider transition-opacity duration-700 ${sliderClass}`}
         >
           {featuredProjects.map((project) => (
-            <div key={project.id} className="keen-slider__slide">
+            <div
+              key={project.id}
+              className="keen-slider__slide flex items-stretch"
+            >
               <FeaturedProjectCard project={project} />
             </div>
           ))}

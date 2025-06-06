@@ -12,12 +12,14 @@ export interface Project {
   type: ("Game" | "Web" | "iOS" | "Android")[];
   status: "In Development" | "Completed" | "Prototype";
   screenshot: string;
-  icon: string;
+  icon?: string;
   duration: string;
   teamSize: string;
-  releaseDate: string;
+  completedDate: string;
   technologies: string[];
   githubUrl: string;
+  extraUrl?: string; // the link itself
+  extraUrlLabel?: string; // label to show in the UI
   isFeatured: boolean;
 }
 
@@ -26,52 +28,56 @@ export const projectList: Project[] = [
   {
     id: "airbrone",
     name: "Airbrone",
-    description:
-      "Smart air quality monitoring with real-time insights and sensor mapping",
-    longDescription: `Airbrone is a native iOS app that monitors and visualizes indoor air quality using real-time sensor data. Built with SwiftUI, the app connects to a backend that collects metrics such as PM2.5, CO₂, temperature, humidity, and TVOC from deployed sensors in buildings. Users can view a live dashboard of environmental data, explore trends with dynamic charts, and understand personal exposure through location-based tracking. The app includes an interactive map to visualize sensor placement and air quality levels across rooms and buildings.`,
+    description: "Real-time indoor air quality monitoring and sensor mapping",
+    longDescription: `Airbrone is a native iOS app developed as part of my engineering capstone project, where I collaborated with a team of four. While the overall system included sensor deployment and backend infrastructure, my primary responsibility was the design and development of the iOS application. I designed the UI in Figma and implemented it in SwiftUI, taking ownership of the full app experience from onboarding to data visualization.\n\nAirbrone visualizes indoor air quality using live data from PM2.5, CO₂, temperature, humidity, and TVOC sensors. The app connects to a real-time backend to display current conditions, trend charts, and estimated personal exposure. Users can explore air quality across rooms and buildings using an interactive indoor map with sensor overlays. Designed for clarity, accessibility, and offline reliability, Airbrone helps users stay informed about their environment.`,
     gallery: [
-      "/projects/airbrone/airbrone-dashboard.png",
-      "/projects/airbrone/airbrone-map.png",
-      "/projects/airbrone/airbrone-history.png",
+      "/project/Airborne/airborne_live.jpg",
+      "/project/Airborne/airborn_mapExpanded.jpg",
+      "/project/Airborne/airborne_data.jpg",
+      "/project/Airborne/airborne_map.jpg",
+      "/project/Airborne/airborne_sensor.jpg",
     ],
     category: "Environment & IoT",
     features: [
-      "Real-time air quality monitoring with live sensor data",
-      "Interactive indoor map view showing sensor placements",
-      "Charts for tracking historical trends and patterns",
-      "User exposure estimation based on location history",
-      "Secure API integration and authentication flow",
-      "Offline caching for uninterrupted access",
-      "Dark mode support and responsive layout",
+      "Live air quality data for PM2.5, CO₂, TVOC, humidity and temperature",
+      "Interactive map of sensor locations and room-level data",
+      "Historical charts and personal exposure insights",
+      "Authentication, secure API integration, and offline caching",
     ],
     challenges: [
-      "Handling high-frequency sensor data efficiently",
-      "Designing a dynamic indoor map visualization",
-      "Ensuring seamless user authentication and API communication",
-      "Visualizing multivariate environmental data clearly",
+      "Integrating the app with physical air quality sensors and ensuring reliable communication",
+      "Designing a clean, responsive UI from scratch using Figma, while accommodating real-time data updates",
+      "Implementing a wide range of API calls for authentication, sensor data, exposure logging, and backend caching — all while maintaining performance and privacy",
+      "Learning and applying Charts, MapKit, and CoreLocation for the first time in a production setting",
+      "Creating subtle animations to make the user experience feel fluid without overwhelming the data visuals",
     ],
     solutions: [
-      "Built modular `DatabaseManager` to handle API requests and error states",
-      "Used SwiftUI’s canvas and layers to implement interactive sensor maps",
-      "Integrated `NavigationManager` for smooth onboarding and navigation transitions",
-      "Implemented data caching with Core Data for offline resilience",
+      "Worked closely with the hardware team to validate sensor data formats and ensure connection stability",
+      "Designed and implemented the full UI in SwiftUI with custom components for responsiveness and clarity",
+      "Built a modular `DatabaseManager` to manage all API calls, including secure exposure data caching to the backend",
+      "Used CoreLocation and MapKit to display sensor locations and track user exposure context over time",
+      "Integrated smooth view transitions and animated chart updates using SwiftUI to enhance visual feedback",
     ],
     type: ["iOS"],
     status: "Completed",
-    screenshot: "/projects/airbrone/airbrone-cover.png",
-    icon: "/projects/airbrone/airbrone-icon.png",
-    duration: "4 months",
-    teamSize: "4 (2 iOS developers, 1 backend, 1 designer)",
-    releaseDate: "2024-03-10",
+    screenshot: "/project/Airborne/airborne_live.jpg",
+    icon: "/project/Airborne/airborne_icon.jpg",
+    duration: "8 months",
+    teamSize: "1",
+    completedDate: "2025-05",
     technologies: [
       "SwiftUI",
-      "CoreLocation",
+      "Swift",
+      "Combine",
       "MapKit",
+      "CoreLocation",
       "Charts",
-      "Core Data",
       "REST API",
+      "Figma",
     ],
-    githubUrl: "",
+    githubUrl: "https://github.com/Alex-Yosh/Airborn",
+    extraUrl: "https://joshuaharper.ca/airborne.html",
+    extraUrlLabel: "Project website",
     isFeatured: true,
   },
   {
@@ -109,7 +115,7 @@ export const projectList: Project[] = [
     icon: "/projects/hydrate/hydrate-icon.png",
     duration: "3 months",
     teamSize: "Solo developer",
-    releaseDate: "2024-07-05",
+    completedDate: "2024-07-05",
     technologies: [
       "SwiftUI",
       "CoreBluetooth",
@@ -151,7 +157,7 @@ export const projectList: Project[] = [
     icon: "/projects/vitapot/vitapot-icon.png",
     duration: "2 months",
     teamSize: "Solo developer",
-    releaseDate: "2024-05-22",
+    completedDate: "2024-05-22",
     technologies: ["SwiftUI", "UserNotifications", "Core Data"],
     githubUrl: "",
     isFeatured: false,
@@ -191,7 +197,7 @@ export const projectList: Project[] = [
     icon: "/projects/flickpick/flickpick-icon.png",
     duration: "Ongoing",
     teamSize: "Solo developer",
-    releaseDate: "2025-04-01",
+    completedDate: "2025-04-01",
     technologies: ["Kotlin", "Jetpack Compose", "Room", "Retrofit", "SQL"],
     githubUrl: "",
     isFeatured: true,
@@ -232,7 +238,7 @@ export const projectList: Project[] = [
     icon: "/projects/portfolio/portfolio-icon.png",
     duration: "Ongoing",
     teamSize: "Solo developer",
-    releaseDate: "2025-06-30",
+    completedDate: "2025-06-30",
     technologies: [
       "Next.js",
       "React",
@@ -271,7 +277,7 @@ export const projectList: Project[] = [
     icon: "/projects/catchybara/catchybara-icon.png",
     duration: "2 months",
     teamSize: "Solo developer",
-    releaseDate: "2023-06-15",
+    completedDate: "2023-06-15",
     technologies: ["Unity", "C#", "Photoshop"],
     githubUrl: "",
     isFeatured: false,
@@ -304,7 +310,7 @@ export const projectList: Project[] = [
     icon: "/projects/fishsweeper/fishsweeper-icon.png",
     duration: "1.5 months",
     teamSize: "Solo developer",
-    releaseDate: "2022-08-10",
+    completedDate: "2022-08-10",
     technologies: ["Unity", "C#", "Aseprite"],
     githubUrl: "",
     isFeatured: false,
@@ -337,7 +343,7 @@ export const projectList: Project[] = [
     icon: "/projects/laserpenguin/laserpenguin-icon.png",
     duration: "2.5 months",
     teamSize: "Solo developer",
-    releaseDate: "2023-11-01",
+    completedDate: "2023-11-01",
     technologies: ["Unity", "C#", "Spine", "FMOD"],
     githubUrl: "",
     isFeatured: true,

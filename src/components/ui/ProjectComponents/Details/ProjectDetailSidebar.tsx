@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/imported/card";
 import { Badge } from "@/components/ui/imported/badge";
-import { ExternalLink, Github, Calendar, Users, Code } from "lucide-react";
+import { Github, Calendar, Users, Code } from "lucide-react";
 import { Project } from "@/data/projects";
 import Link from "next/link";
 import { ProjectsDetailsText } from "@/data/strings";
@@ -90,7 +90,7 @@ export default function ProjectDetailSidebar({
         <CardContent className="space-y-3">
           <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
             <Link
-              href="https://github.com/example/fittracker"
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -98,22 +98,21 @@ export default function ProjectDetailSidebar({
               {ProjectsDetailsText.viewSourceCode}
             </Link>
           </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="w-full border-gray-600 text-white hover:bg-gray-700"
-          >
-            <Link
-              href="https://fittracker-demo.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
+          {project.extraUrl && project.extraUrlLabel && (
+            <Button
+              asChild
+              variant="outline"
+              className="w-full border-gray-600 text-white hover:bg-gray-700"
             >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              {project.status === "In Development"
-                ? "View Progress"
-                : "Live Demo"}
-            </Link>
-          </Button>
+              <Link
+                href={project.extraUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.extraUrlLabel}
+              </Link>
+            </Button>
+          )}
         </CardContent>
       </Card>
     </div>
