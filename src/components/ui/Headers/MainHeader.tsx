@@ -8,6 +8,7 @@ import Image from "next/image";
 
 export default function MainHeader() {
   const [scrollWidth, setScrollWidth] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // NEW
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +46,7 @@ export default function MainHeader() {
               </span>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-1">
               {MainHeaderText.sections.map((item) => (
                 <Link
@@ -59,13 +60,6 @@ export default function MainHeader() {
                   <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </Link>
               ))}
-              {/* <Button
-                size="sm"
-                variant="outline"
-                className="ml-4 border-blue-500 text-blue-400 hover:bg-blue-500/10"
-              >
-                Resume
-              </Button> */}
             </div>
 
             {/* Mobile Menu Button */}
@@ -74,6 +68,7 @@ export default function MainHeader() {
                 variant="ghost"
                 size="icon"
                 className="text-gray-300 hover:text-white"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,13 +81,29 @@ export default function MainHeader() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line x1="4" x2="20" y1="12" y2="12" />
                   <line x1="4" x2="20" y1="6" y2="6" />
+                  <line x1="4" x2="20" y1="12" y2="12" />
                   <line x1="4" x2="20" y1="18" y2="18" />
                 </svg>
               </Button>
             </div>
           </div>
+
+          {/* Mobile Nav Links */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden flex flex-col space-y-2 py-2">
+              {MainHeaderText.sections.map((item) => (
+                <Link
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Scroll Progress Indicator */}
