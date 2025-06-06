@@ -39,7 +39,7 @@ export default function ProjectPage({
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <ProjectDetailHeader project={project} />
       <div
         ref={heroRef}
