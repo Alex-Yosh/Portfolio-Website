@@ -26,7 +26,7 @@ export default function ProjectHeader({
               <ArrowLeft className="w-5 h-5 mr-2" />
               {ProjectHeaderText.backButton}
             </Link>
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            <h1 className="hidden sm:block text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
               {ProjectHeaderText.title}
             </h1>
           </div>
