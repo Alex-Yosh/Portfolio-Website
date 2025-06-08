@@ -1,8 +1,10 @@
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, Github } from "lucide-react";
 import Link from "next/link";
-import { Project } from "@/data/projects";
+import { isPhonePlatform, Project } from "@/data/projects";
 import { Button } from "@/components/ui/imported/button";
 import { ProjectDetailHeaderText } from "@/data/strings";
+import VideoModal from "../extra/VideoPopupButton";
+import { useState } from "react";
 
 interface ProjectDetailHeaderProps {
   project: Project;
@@ -11,6 +13,7 @@ interface ProjectDetailHeaderProps {
 export default function ProjectDetailHeader({
   project,
 }: ProjectDetailHeaderProps) {
+  const [open, setOpen] = useState(false);
   return (
     <header className="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -41,20 +44,25 @@ export default function ProjectDetailHeader({
                   {ProjectDetailHeaderText.code}
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="sm"
-                className="bg-blue-600 hover:bg-blue-700"
-              >
-                <Link
-                  href={project.screenshot}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  {ProjectDetailHeaderText.liveDemo}
-                </Link>
-              </Button>
+              {project.video && (
+                <>
+                  <Button
+                    size="sm"
+                    className="bg-blue-600 hover:bg-blue-700"
+                    onClick={() => setOpen(true)}
+                  >
+                    {ProjectDetailHeaderText.liveDemo}
+                  </Button>
+
+                  {open && (
+                    <VideoModal
+                      videoUrl={project.video}
+                      onClose={() => setOpen(false)}
+                      phoneRes={isPhonePlatform(project)}
+                    />
+                  )}
+                </>
+              )}
             </div>
           </div>
         </div>

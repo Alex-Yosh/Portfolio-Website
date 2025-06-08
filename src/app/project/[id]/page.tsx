@@ -40,92 +40,100 @@ export default function ProjectPage({
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
-      <ProjectDetailHeader project={project} />
-      <div
-        ref={heroRef}
-        className={`transition-all duration-700 ease-out transform ${
-          hasMounted && heroInView
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-10"
-        }`}
-      >
-        <ProjectDetailHero project={project} />
+      {/* Fixed header */}
+      <div className="fixed top-0 left-0 w-full z-50 bg-gray-900 border-b border-gray-700 shadow-md">
+        <ProjectDetailHeader project={project} />
       </div>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              {/* Overview */}
-              <div
-                ref={overviewRef}
-                className={`transition-all duration-700 ease-out transform ${
-                  hasMounted && overviewInView
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-20"
-                }`}
-              >
-                <ProjectDetailOverview
-                  longDescription={project.longDescription}
-                />
+      {/* Push content below the fixed header (adjust `pt` based on header height) */}
+      <div className="pt-24">
+        <div
+          ref={heroRef}
+          className={`transition-all duration-700 ease-out transform ${
+            hasMounted && heroInView
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
+          }`}
+        >
+          <ProjectDetailHero project={project} />
+        </div>
+
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* Left column */}
+              <div className="lg:col-span-2 space-y-12">
+                {/* Overview */}
+                <div
+                  ref={overviewRef}
+                  className={`transition-all duration-700 ease-out transform ${
+                    hasMounted && overviewInView
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-20"
+                  }`}
+                >
+                  <ProjectDetailOverview
+                    longDescription={project.longDescription}
+                  />
+                </div>
+
+                {/* Features */}
+                <div
+                  ref={featuresRef}
+                  className={`transition-all duration-700 ease-out transform ${
+                    hasMounted && featuresInView
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-20"
+                  }`}
+                >
+                  <ProjectDetailFeature features={project.features} />
+                </div>
+
+                {/* Challenges & Solutions */}
+                <div
+                  ref={challengesRef}
+                  className={`transition-all duration-700 ease-out transform ${
+                    hasMounted && challengesInView
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-20"
+                  }`}
+                >
+                  <ProjectDetailChallengeSolution
+                    challenges={project.challenges}
+                    solutions={project.solutions}
+                  />
+                </div>
+
+                {/* Gallery */}
+                <div
+                  ref={galleryRef}
+                  className={`transition-all duration-700 ease-out transform ${
+                    hasMounted && galleryInView
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-y-10"
+                  }`}
+                >
+                  <ProjectDetailGallary gallery={project.gallery} />
+                </div>
               </div>
 
-              {/* Features */}
+              {/* Sidebar */}
               <div
-                ref={featuresRef}
+                ref={sidebarRef}
                 className={`transition-all duration-700 ease-out transform ${
-                  hasMounted && featuresInView
+                  hasMounted && sidebarInView
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-20"
+                    : "opacity-0 translate-x-20"
                 }`}
               >
-                <ProjectDetailFeature features={project.features} />
+                <ProjectDetailSidebar project={project} />
               </div>
-
-              {/* Challenges & Solutions */}
-              <div
-                ref={challengesRef}
-                className={`transition-all duration-700 ease-out transform ${
-                  hasMounted && challengesInView
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-20"
-                }`}
-              >
-                <ProjectDetailChallengeSolution
-                  challenges={project.challenges}
-                  solutions={project.solutions}
-                />
-              </div>
-
-              {/* Gallery */}
-              <div
-                ref={galleryRef}
-                className={`transition-all duration-700 ease-out transform ${
-                  hasMounted && galleryInView
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-y-10"
-                }`}
-              >
-                <ProjectDetailGallary gallery={project.gallery} />
-              </div>
-            </div>
-
-            {/* Sidebar (from right) */}
-            <div
-              ref={sidebarRef}
-              className={`transition-all duration-700 ease-out transform ${
-                hasMounted && sidebarInView
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-20"
-              }`}
-            >
-              <ProjectDetailSidebar project={project} />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

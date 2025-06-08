@@ -7,9 +7,11 @@ import {
 } from "@/components/ui/imported/card";
 import { Badge } from "@/components/ui/imported/badge";
 import { Github, Calendar, Users, Code } from "lucide-react";
-import { Project } from "@/data/projects";
+import { isPhonePlatform, Project } from "@/data/projects";
 import Link from "next/link";
 import { ProjectsDetailsText } from "@/data/strings";
+import { useState } from "react";
+import VideoModal from "../../extra/VideoPopupButton";
 
 interface ProjectDetailSidebarProps {
   project: Project;
@@ -18,6 +20,7 @@ interface ProjectDetailSidebarProps {
 export default function ProjectDetailSidebar({
   project,
 }: ProjectDetailSidebarProps) {
+  const [open, setOpen] = useState(false);
   return (
     <div className="space-y-6">
       {/* Project Info */}
@@ -88,7 +91,11 @@ export default function ProjectDetailSidebar({
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
+          <Button
+            asChild
+            variant="outline"
+            className="w-full border-gray-600 text-white hover:bg-gray-700"
+          >
             <Link
               href={project.githubUrl}
               target="_blank"
@@ -112,6 +119,24 @@ export default function ProjectDetailSidebar({
                 {project.extraUrlLabel}
               </Link>
             </Button>
+          )}
+          {project.video && (
+            <>
+              <Button
+                className="w-full bg-blue-600 hover:bg-blue-700"
+                onClick={() => setOpen(true)}
+              >
+                {ProjectsDetailsText.liveDemo}
+              </Button>
+
+              {open && (
+                <VideoModal
+                  videoUrl={project.video}
+                  onClose={() => setOpen(false)}
+                  phoneRes={isPhonePlatform(project)}
+                />
+              )}
+            </>
           )}
         </CardContent>
       </Card>

@@ -141,6 +141,7 @@ export const ProjectsDetailsText = {
   techUsed: "Technologies Used",
   projectLinks: "Project Links",
   viewSourceCode: "View Source Code",
+  liveDemo: "Live Demo",
 };
 
 export const MainHeaderText = {

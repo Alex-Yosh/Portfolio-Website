@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   longDescription: string;
   gallery: string[];
+  video?: string;
   category: string;
   features: string[];
   challenges: string[];
@@ -32,11 +33,12 @@ export const projectList: Project[] = [
     longDescription: `Airbrone is a native iOS app developed as part of my engineering capstone project, where I collaborated with a team of four. While the overall system included sensor deployment and backend infrastructure, my primary responsibility was the design and development of the iOS application. I designed the UI in Figma and implemented it in SwiftUI, taking ownership of the full app experience from onboarding to data visualization.\n\nAirbrone visualizes indoor air quality using live data from PM2.5, CO₂, temperature, humidity, and TVOC sensors. The app connects to a real-time backend to display current conditions, trend charts, and estimated personal exposure. Users can explore air quality across rooms and buildings using an interactive indoor map with sensor overlays. Designed for clarity, accessibility, and offline reliability, Airbrone helps users stay informed about their environment.`,
     gallery: [
       "/project/Airborne/airborne_live.jpg",
-      "/project/Airborne/airborn_mapExpanded.jpg",
+      "/project/Airborne/airborne_mapExpanded.jpg",
       "/project/Airborne/airborne_data.jpg",
       "/project/Airborne/airborne_map.jpg",
       "/project/Airborne/airborne_sensor.jpg",
     ],
+    video: "/project/Airborne/airbrone_video.mp4",
     category: "Environment & IoT",
     features: [
       "Live air quality data for PM2.5, CO₂, TVOC, humidity and temperature",
@@ -78,6 +80,46 @@ export const projectList: Project[] = [
     githubUrl: "https://github.com/Alex-Yosh/Airborn",
     extraUrl: "https://joshuaharper.ca/airborne.html",
     extraUrlLabel: "Project website",
+    isFeatured: true,
+  },
+  {
+    id: "flickpick",
+    name: "FlickPick",
+    description: "Social movie tracking with AI-powered recommendations",
+    longDescription: `FlickPick is a native Android app that lets users track, rate, and discover movies while connecting with friends through shared watchlists and group recommendations. The app includes intelligent movie suggestions powered by collaborative and content-based filtering. Users can filter searches, sort by rating/year, and view group activity feeds.`,
+    gallery: [
+      "/projects/flickpick/flickpick-feed.png",
+      "/projects/flickpick/flickpick-search.png",
+      "/projects/flickpick/flickpick-groups.png",
+    ],
+    category: "Entertainment",
+    features: [
+      "Track watched movies and rate them",
+      "Personalized movie recommendations using hybrid ML models",
+      "Group activity feed and shared watchlists",
+      "Filter and sort movie catalog by genre, rating, and year",
+      "Modern UI with Jetpack Compose and lazy loading",
+      "Dark mode and bottom sheet filtering",
+    ],
+    challenges: [
+      "Designing a scalable group recommendation system",
+      "Implementing performant lazy loading for activity feeds",
+      "Building a flexible filter/sort UI",
+    ],
+    solutions: [
+      "Used collaborative and content-based filtering to generate recommendations",
+      "Built paginated lazy-loading list for activity feed updates",
+      "Implemented dynamic bottom sheet with genre, language, and sort filters",
+    ],
+    type: ["Android"],
+    status: "Completed",
+    screenshot: "/projects/flickpick/flickpick-cover.png",
+    icon: "/projects/flickpick/flickpick-icon.png",
+    duration: "Ongoing",
+    teamSize: "Solo developer",
+    completedDate: "2025-04-01",
+    technologies: ["Kotlin", "Jetpack Compose", "Room", "Retrofit", "SQL"],
+    githubUrl: "",
     isFeatured: true,
   },
   {
@@ -161,46 +203,6 @@ export const projectList: Project[] = [
     technologies: ["SwiftUI", "UserNotifications", "Core Data"],
     githubUrl: "",
     isFeatured: false,
-  },
-  {
-    id: "flickpick",
-    name: "FlickPick",
-    description: "Social movie tracking with AI-powered recommendations",
-    longDescription: `FlickPick is a native Android app that lets users track, rate, and discover movies while connecting with friends through shared watchlists and group recommendations. The app includes intelligent movie suggestions powered by collaborative and content-based filtering. Users can filter searches, sort by rating/year, and view group activity feeds.`,
-    gallery: [
-      "/projects/flickpick/flickpick-feed.png",
-      "/projects/flickpick/flickpick-search.png",
-      "/projects/flickpick/flickpick-groups.png",
-    ],
-    category: "Entertainment",
-    features: [
-      "Track watched movies and rate them",
-      "Personalized movie recommendations using hybrid ML models",
-      "Group activity feed and shared watchlists",
-      "Filter and sort movie catalog by genre, rating, and year",
-      "Modern UI with Jetpack Compose and lazy loading",
-      "Dark mode and bottom sheet filtering",
-    ],
-    challenges: [
-      "Designing a scalable group recommendation system",
-      "Implementing performant lazy loading for activity feeds",
-      "Building a flexible filter/sort UI",
-    ],
-    solutions: [
-      "Used collaborative and content-based filtering to generate recommendations",
-      "Built paginated lazy-loading list for activity feed updates",
-      "Implemented dynamic bottom sheet with genre, language, and sort filters",
-    ],
-    type: ["Android"],
-    status: "Completed",
-    screenshot: "/projects/flickpick/flickpick-cover.png",
-    icon: "/projects/flickpick/flickpick-icon.png",
-    duration: "Ongoing",
-    teamSize: "Solo developer",
-    completedDate: "2025-04-01",
-    technologies: ["Kotlin", "Jetpack Compose", "Room", "Retrofit", "SQL"],
-    githubUrl: "",
-    isFeatured: true,
   },
   {
     id: "portfolio",
@@ -349,3 +351,8 @@ export const projectList: Project[] = [
     isFeatured: true,
   },
 ];
+
+//Helper
+export function isPhonePlatform(project: Project): boolean {
+  return project.type.includes("iOS") || project.type.includes("Android");
+}
