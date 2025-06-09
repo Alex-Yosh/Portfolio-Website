@@ -91,20 +91,22 @@ export default function ProjectDetailSidebar({
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          <Button
-            asChild
-            variant="outline"
-            className="w-full border-gray-600 text-white hover:bg-gray-700"
-          >
-            <Link
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+          {project.githubUrl && (
+            <Button
+              asChild
+              variant="outline"
+              className="w-full border-gray-600 text-white hover:bg-gray-700"
             >
-              <Github className="w-4 h-4 mr-2" />
-              {ProjectsDetailsText.viewSourceCode}
-            </Link>
-          </Button>
+              <Link
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-4 h-4 mr-2" />
+                {ProjectsDetailsText.viewSourceCode}
+              </Link>
+            </Button>
+          )}
           {project.extraUrl && project.extraUrlLabel && (
             <Button
               asChild

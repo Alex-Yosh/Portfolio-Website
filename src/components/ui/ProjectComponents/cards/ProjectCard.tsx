@@ -30,21 +30,20 @@ const renderDeviceMockup = (project: Project) => {
     // Android mockup
     return (
       <div className="relative w-[280px] mx-auto md:mx-0">
-        <div className="relative w-[280px] h-[570px] rounded-[24px] border-[8px] border-gray-800 overflow-hidden shadow-lg bg-black">
+        <div className="relative w-[280px] h-[570px] rounded-[24px] border-[8px] border-gray-800 overflow-hidden shadow-lg bg-black box-border">
           <Image
             src={project.screenshot || "/placeholder.svg"}
             alt={project.name}
-            width={264}
-            height={554}
+            fill
             className="object-cover"
           />
-          {/* Android navigation bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-12 bg-black/80 flex items-center justify-center space-x-8">
+          {/* <div className="absolute bottom-0 left-0 right-0 h-12 bg-black/80 flex items-center justify-center space-x-8">
             <div className="w-4 h-4 border-2 border-gray-500 rounded-sm"></div>
             <div className="w-4 h-4 bg-gray-500 rounded-full"></div>
             <div className="w-4 h-4 border-2 border-gray-500"></div>
-          </div>
+          </div> */}
         </div>
+
         <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full w-32 h-32 blur-xl group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
       </div>
     );
@@ -139,21 +138,24 @@ export default function ProjectCard({ project }: { project: Project }) {
                 {ProjectsPageText.viewDetails}
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="border-gray-600 text-white hover:bg-gray-800"
-            >
-              <Link
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+
+            {project.githubUrl && (
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="border-gray-600 text-white hover:bg-gray-800"
               >
-                <Github className="w-4 h-4 mr-2" />
-                {ProjectsPageText.viewCode}
-              </Link>
-            </Button>
+                <Link
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-4 h-4 mr-2" />
+                  {ProjectsPageText.viewCode}
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

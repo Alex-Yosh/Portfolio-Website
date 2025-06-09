@@ -18,7 +18,7 @@ export interface Project {
   teamSize: string;
   completedDate: string;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
   extraUrl?: string; // the link itself
   extraUrlLabel?: string; // label to show in the UI
   isFeatured: boolean;
@@ -84,14 +84,17 @@ export const projectList: Project[] = [
   },
   {
     id: "flickpick",
-    name: "FlickPick",
+    name: "Flick Pick",
     description: "Social movie tracking with AI-powered recommendations",
-    longDescription: `FlickPick is a native Android app that lets users track, rate, and discover movies while connecting with friends through shared watchlists and group recommendations. The app includes intelligent movie suggestions powered by collaborative and content-based filtering. Users can filter searches, sort by rating/year, and view group activity feeds.`,
+    longDescription: `FlickPick is a native Android app that lets users track, rate, and discover movies while connecting with friends through shared watchlists and group recommendations. At its core is an AI-powered recommendation engine that combines collaborative and content-based filtering to deliver personalized movie suggestions. Users can filter and sort the catalog by genre, rating, and release year, and stay up to date through a dynamic group activity feed.`,
     gallery: [
-      "/projects/flickpick/flickpick-feed.png",
-      "/projects/flickpick/flickpick-search.png",
-      "/projects/flickpick/flickpick-groups.png",
+      "/project/FlickPick/flickpick_browse.jpg",
+      "/project/FlickPick/flickpick_recommendations.jpg",
+      "/project/FlickPick/flickpick_clubActivity.jpg",
+      "/project/FlickPick/flickpick_movie.jpg",
+      "/project/FlickPick/flickpick_filter.jpg",
     ],
+    video: "/project/FlickPick/flickpick_demo.mp4",
     category: "Entertainment",
     features: [
       "Track watched movies and rate them",
@@ -99,27 +102,40 @@ export const projectList: Project[] = [
       "Group activity feed and shared watchlists",
       "Filter and sort movie catalog by genre, rating, and year",
       "Modern UI with Jetpack Compose and lazy loading",
-      "Dark mode and bottom sheet filtering",
+      "Login and sign-up with Firebase Authentication",
     ],
     challenges: [
-      "Designing a scalable group recommendation system",
-      "Implementing performant lazy loading for activity feeds",
-      "Building a flexible filter/sort UI",
+      "Learning how to incorporate API calls and handle asynchronous data",
+      "Collaborating effectively in a large team to divide responsibilities and stay aligned",
+      "Building both functional UI components and complex app features in tandem",
+      "Applying architectural principles and design patterns in a real-world project",
     ],
     solutions: [
-      "Used collaborative and content-based filtering to generate recommendations",
-      "Built paginated lazy-loading list for activity feed updates",
-      "Implemented dynamic bottom sheet with genre, language, and sort filters",
+      "Used Retrofit and coroutines to manage API calls and streamline network logic",
+      "Defined team roles and distributed development tasks to ensure parallel progress and accountability",
+      "Developed cohesive UI and features simultaneously with Jetpack Compose and modular components",
+      "Applied MVVM architecture and repository pattern to ensure clean, scalable code structure",
     ],
     type: ["Android"],
     status: "Completed",
-    screenshot: "/projects/flickpick/flickpick-cover.png",
-    icon: "/projects/flickpick/flickpick-icon.png",
-    duration: "Ongoing",
-    teamSize: "5",
-    completedDate: "2025-04-01",
-    technologies: ["Kotlin", "Jetpack Compose", "Room", "Retrofit", "SQL"],
-    githubUrl: "",
+    screenshot: "/project/FlickPick/flickpick_browse.jpg",
+    icon: "/project/FlickPick/flickpick_icon.jpg",
+    duration: "4 months",
+    teamSize: "6",
+    completedDate: "2025-05",
+    technologies: [
+      "Kotlin",
+      "Python",
+      "MySQL",
+      "Jetpack Compose",
+      "Retrofit",
+      "FastAPI",
+      "Firebase Authentication",
+      "Coroutines & Flow",
+      "Material Design 3",
+      "Hilt",
+      "AI",
+    ],
     isFeatured: true,
   },
   {

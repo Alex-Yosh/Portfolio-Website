@@ -29,21 +29,26 @@ export default function ProjectDetailHeader({
           </div>
           <div className="flex items-center space-x-4">
             <div className="flex space-x-4">
-              <Button
-                asChild
-                variant="outline"
-                size="sm"
-                className="border-gray-600 text-white hover:bg-gray-800"
-              >
-                <Link
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="w-4 h-4 mr-2" />
-                  {ProjectDetailHeaderText.code}
-                </Link>
-              </Button>
+              {project.githubUrl && (
+                <>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="border-gray-600 text-white hover:bg-gray-800"
+                  >
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      {ProjectDetailHeaderText.code}
+                    </Link>
+                  </Button>
+                </>
+              )}
+
               {project.video && (
                 <>
                   <Button
