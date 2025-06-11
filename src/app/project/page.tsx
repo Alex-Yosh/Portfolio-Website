@@ -46,27 +46,19 @@ export default function Project() {
 
       {/* Main content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filter */}
-          <aside className="lg:w-1/4">
-            <TypeFilter
-              selectedType={selectedType}
-              types={types}
-              setSelectedType={setSelectedType}
-            />
-          </aside>
-
-          {/* Main Project Content */}
-          <section className="flex-1">
-            {filteredProjects.length === 0 ? (
-              <NoProjectsFound />
-            ) : (
-              <div className="space-y-16">
-                <ProjectList projects={filteredProjects} />
-              </div>
-            )}
-          </section>
-        </div>
+        {/* Filters */}
+        <TypeFilter
+          selectedType={selectedType}
+          types={types}
+          setSelectedType={setSelectedType}
+        />
+        {filteredProjects.length === 0 ? (
+          <NoProjectsFound />
+        ) : (
+          <div className="space-y-16">
+            <ProjectList projects={filteredProjects} />
+          </div>
+        )}
       </main>
     </div>
   );
