@@ -197,7 +197,7 @@ export const projectList: Project[] = [
       "/project/Vita-Pot/vitapot_form.jpg",
     ],
     video: "/project/Vita-Pot/vitapot_demo.mp4",
-    category: "Lifestyle & Productivity",
+    category: "Environment",
     features: [
       "Built entirely with SwiftUI as a first-time framework experience",
       "Add, remove, edit, and favorite plants",
@@ -220,7 +220,7 @@ export const projectList: Project[] = [
     icon: "/project/Vita-Pot/vitapot_icon.jpeg",
     duration: "1 week",
     teamSize: "1",
-    completedDate: "2024-05-22",
+    completedDate: "2023-01-22",
     technologies: ["SwiftUI", "Swift", "UserDefaults"],
     githubUrl: "https://github.com/Alex-Yosh/Vita-Pot",
     isFeatured: false,
