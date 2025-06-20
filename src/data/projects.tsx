@@ -360,6 +360,43 @@ export const projectList: Project[] = [
     isFeatured: false,
   },
 
+  {
+    id: "nextlevel",
+    name: "NextLevel Powerlifting",
+    description: "A native iOS coaching app for powerlifters and coaches",
+    longDescription: `NextLevel Powerlifting is a native iOS coaching app built in SwiftUI, designed to streamline the training experience for both athletes and coaches. Athletes can view assigned programs, track their workouts live, and upload videos for feedback. While coaches can create structured routines, monitor progress, and provide detailed coaching.
+  
+  The app includes features like real-time workout tracking, a rich exercise library with demo videos, coach-athlete video feedback, and personalized dashboards. It also emphasizes clean design and responsive UI interactions to support training adherence and coaching efficiency. Backend integration ensure seamless user persistence and dynamic program delivery.`,
+    gallery: ["/project/NextLevel/nevtlevel_progress.jpg"],
+    category: "Health & Fitness",
+    features: [
+      "Live workout tracking with set/reps/weight logging",
+      "Coach-assigned programs with progress visualization",
+      "Exercise library with demonstration videos",
+      "Coach feedback via uploaded athlete videos",
+      "Clean, modern SwiftUI interface",
+    ],
+    challenges: [
+      "Designing a dual-role UX (Coach vs Athlete) within a unified architecture",
+      "Implementing live workout tracking and video uploads in SwiftUI",
+      "Ensuring clean data flow between backend",
+      "Creating reusable components for workouts, sets, and user feedback",
+    ],
+    solutions: [
+      "Separated UI states via appStatus and NavigationManager for role-based navigation",
+      "Built custom SwiftUI views for workout cards, video capture, and exercise display",
+    ],
+    type: ["iOS"],
+    status: "In Development",
+    screenshot: "/project/NextLevel/nevtlevel_progress.jpg",
+    icon: "/project/defaultIcon.jpg",
+    duration: "Ongoing",
+    teamSize: "1",
+    completedDate: "",
+    technologies: ["Swift", "SwiftUI"],
+    isFeatured: true,
+  },
+
   // {
   //   id: "laserpenguin",
   //   name: "Laser Penguin",
